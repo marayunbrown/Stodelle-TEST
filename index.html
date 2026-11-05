@@ -1,0 +1,1593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1A1A1A">
+<title>Stodelle House Proposals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carbon:#1A1A1A; --plaster:#F4F1EB; --bronze:#9C6B32; --brass:#C9A96B;
+  --pink:#FF2E93; --concrete:#A9A29A; --stone:#DDD7CC; --nearblack:#0C0B0A;
+  --card:#1B1916; --card-line:#2E2A25; --muted-dark:#CFC8BD; --muted:#6E675F;
+  --white:#FFFFFF; --warn:#B4231F;
+  --display:"Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --body:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --gutter:1.25rem; --bar-h:96px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--plaster);color:var(--carbon);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:hidden;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 24px)}
+img,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--gutter)}
+
+/* Header */
+.top{background:var(--carbon);color:var(--plaster);padding:18px 0 20px}
+.top .wrap{display:flex;align-items:center;gap:14px}
+.sun{width:44px;height:44px;flex:none;color:var(--brass)}
+.brand{min-width:0;flex:1}
+.wordmark{width:132px;height:auto}
+.eyebrow{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin:0 0 6px}
+.top .eyebrow{color:var(--brass);margin:8px 0 0}
+.top-actions{display:flex;gap:8px;flex:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 16px;border:2px solid var(--carbon);background:var(--carbon);color:var(--plaster);font-family:var(--display);font-size:1rem;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;border-radius:0;-webkit-tap-highlight-color:transparent}
+.btn.ghost{background:transparent;color:var(--carbon)}
+.top .btn.ghost{color:var(--plaster);border-color:var(--plaster)}
+.btn.bronze{background:var(--bronze);border-color:var(--bronze);color:var(--plaster)}
+.btn.small{min-height:36px;padding:0 12px;font-size:.9rem}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.link{background:none;border:0;padding:0;color:var(--bronze);font-weight:600;font-size:.85rem;text-decoration:underline;cursor:pointer}
+
+/* Sections */
+.section{padding:28px 0 8px}
+h2{font-family:var(--display);font-weight:400;font-size:2rem;line-height:1.05;text-transform:uppercase;margin:0 0 6px;letter-spacing:.01em}
+.lead{margin:0 0 18px;color:var(--muted);max-width:52ch}
+.card{background:var(--white);border:3px solid var(--carbon);padding:18px}
+
+/* Forms */
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.lbl{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--carbon)}
+.field input,.field select,.field textarea{width:100%;min-width:0;min-height:46px;padding:10px 12px;border:1px solid var(--concrete);background:var(--plaster);border-radius:0;appearance:none;-webkit-appearance:none}
+.field textarea{min-height:84px;resize:vertical;line-height:1.45}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--carbon) 50%),linear-gradient(135deg,var(--carbon) 50%,transparent 50%);background-position:calc(100% - 18px) 20px,calc(100% - 13px) 20px;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--carbon);outline:none;box-shadow:0 0 0 3px var(--pink)}
+.field input.auto{color:var(--muted)}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.hint{font-size:.85rem;color:var(--muted);margin:2px 0 0}
+.money-in{position:relative}
+.money-in::before{content:"$";position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.money-in input{padding-left:24px}
+
+/* Service picker */
+.picker{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.pick{min-height:44px;padding:8px 14px;border:2px solid var(--carbon);background:transparent;color:var(--carbon);font-weight:600;font-size:.92rem;text-align:left;cursor:pointer;border-radius:0}
+.pick .plus{font-family:var(--display);margin-right:6px}
+.pick[aria-pressed="true"]{background:var(--carbon);color:var(--plaster)}
+.pick[aria-pressed="true"] .plus{color:var(--brass)}
+.rates{margin-bottom:18px}
+.rates .duo{margin-top:4px}
+
+/* Tabs */
+.tabs-shell{display:none;align-items:stretch;border-bottom:3px solid var(--carbon)}
+.tabs-shell.on{display:flex}
+.arrow{flex:none;width:40px;border:0;background:var(--carbon);color:var(--plaster);font-family:var(--display);font-size:1.3rem;cursor:pointer}
+.arrow[disabled]{background:var(--stone);color:var(--concrete);cursor:default}
+.arrow[hidden]{display:none}
+.tabrow{flex:1;min-width:0;display:flex;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabrow::-webkit-scrollbar{display:none}
+.tab{flex:none;max-width:78vw;min-height:48px;padding:10px 16px;border:0;border-right:1px solid var(--stone);background:var(--plaster);color:var(--carbon);font-family:var(--display);font-size:1rem;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--carbon);color:var(--plaster)}
+.panel{background:var(--white);border:3px solid var(--carbon);border-top:0;padding:18px}
+.panel h3{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;text-transform:uppercase;margin:0 0 10px}
+.block{border-top:1px solid var(--stone);padding-top:16px;margin-top:18px}
+.block-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
+.block-head h4{font-family:var(--display);font-weight:400;font-size:1.15rem;text-transform:uppercase;margin:0;letter-spacing:.02em}
+.uses{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+
+/* Line items */
+.line{border:1px solid var(--stone);padding:12px;margin-bottom:10px;background:var(--plaster)}
+.line-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.line-name{font-weight:600;min-width:0}
+.line-amt{font-family:var(--display);font-size:1.25rem;white-space:nowrap}
+.line .field input{background:var(--white);min-height:42px;padding:8px 10px}
+.line .money-in input{padding-left:22px}
+.line .money-in::before{left:10px}
+.note{font-size:.84rem;margin:8px 0 0;color:var(--muted)}
+.note.min{color:var(--bronze);font-weight:600}
+.note.warn{color:var(--warn);font-weight:600}
+.line-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.addons{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.addon-btn{min-height:40px;padding:6px 12px;border:1px dashed var(--carbon);background:transparent;font-weight:600;font-size:.86rem;cursor:pointer;border-radius:0}
+.svc-total{display:flex;justify-content:space-between;align-items:baseline;border-top:3px solid var(--carbon);padding-top:10px;margin-top:14px}
+.svc-total .k{font-family:var(--display);text-transform:uppercase;font-size:1.05rem}
+.svc-total .v{font-family:var(--display);font-size:1.6rem}
+
+/* Scope */
+.steps{list-style:none;margin:0;padding:0;counter-reset:step}
+.step{counter-increment:step;display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--stone)}
+.step::before{content:counter(step);font-family:var(--display);font-size:1.3rem;color:var(--bronze);line-height:1.6}
+.step .field input{min-height:40px;padding:8px 10px;font-weight:600}
+.step .field textarea{min-height:96px;padding:8px 10px;font-size:.94rem}
+.step-actions{display:flex;gap:14px;margin-top:6px}
+.empty{border:2px dashed var(--concrete);padding:28px 18px;text-align:center;color:var(--muted)}
+.empty strong{display:block;font-family:var(--display);font-weight:400;font-size:1.3rem;text-transform:uppercase;color:var(--carbon);margin-bottom:4px}
+.panel-foot{display:flex;justify-content:flex-end;border-top:1px solid var(--stone);padding-top:14px;margin-top:18px}
+
+/* Pinned totals */
+.totals{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--nearblack);color:var(--plaster);border-top:3px solid var(--brass);padding:10px 0 calc(10px + env(safe-area-inset-bottom))}
+.totals .wrap{display:flex;flex-direction:column;gap:4px}
+.sums{display:flex;flex-wrap:wrap;gap:4px 22px;align-items:baseline}
+.sum{display:flex;flex-direction:column;min-width:0}
+.sum .k{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.sum .v{font-family:var(--display);font-size:1.7rem;line-height:1.05;letter-spacing:.01em}
+.sum[hidden]{display:none}
+.margin-line{font-size:.82rem;color:var(--muted-dark);border-top:1px solid var(--card-line);padding-top:5px}
+.margin-line .flag{color:var(--pink);font-weight:600}
+
+/* Dialog */
+dialog{border:3px solid var(--carbon);padding:20px;max-width:min(92vw,420px);border-radius:0;background:var(--plaster)}
+dialog::backdrop{background:rgba(12,11,10,.6)}
+dialog h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.4rem;margin:0 0 8px}
+dialog p{margin:0 0 16px}
+.dialog-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+
+.btn.pink{background:var(--pink);border-color:var(--pink);color:var(--carbon)}
+.downloads{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 10px}
+.downloads .btn{flex:1 1 150px;white-space:nowrap;padding:0 10px}
+.msg{border:3px solid var(--warn);background:var(--white);padding:12px 14px;margin:8px 0 12px;color:var(--warn)}
+.msg ul{margin:6px 0 0;padding-left:18px;color:var(--carbon)}
+.srow{display:grid;grid-template-columns:84px minmax(0,1fr) 26px;gap:6px 8px;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--stone)}
+.srow>input[data-sc=label]{grid-column:1 / -1}
+.srow.ro{grid-template-columns:minmax(0,1fr) 42px 86px;font-size:.92rem;border-bottom:1px solid var(--stone);padding-bottom:6px}
+.srow.ro span:nth-child(n+2),.srow [data-out="samt"]{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.srow input{width:100%;min-width:0;min-height:42px;padding:8px 10px;border:1px solid var(--concrete);background:var(--white);border-radius:0}
+.srow .pct-in input{padding-right:22px}
+.srow .x{border:0;background:none;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--muted);padding:0}
+.check{display:flex;gap:10px;align-items:center;font-weight:600;margin:14px 0 8px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--carbon);flex:none}
+.pct-in{position:relative}.pct-in::after{content:"%";position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.pct-in input{padding-right:26px}
+@media (min-width:720px){
+  .grid{grid-template-columns:1fr 1fr}
+  .grid .wide{grid-column:1 / -1}
+  .wordmark{width:160px}
+  .sums{gap:4px 40px}
+  h2{font-size:2.6rem}
+}
+@media print{.totals,.top-actions{display:none}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <svg class="sun" viewBox="0 0 100 100" aria-hidden="true" id="sunMark"></svg>
+    <div class="brand">
+      <img class="wordmark" alt="Stodelle House" id="wmImg">
+      <p class="eyebrow">Proposal builder</p>
+    </div>
+    <div class="top-actions">
+      <button class="btn ghost small" id="newBtn" type="button">New</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section" aria-labelledby="clientHead">
+    <div class="wrap">
+      <p class="eyebrow">Step 1</p>
+      <h2 id="clientHead">Client</h2>
+      <p class="lead">Square footage, zones and buildings set the suggested hours on each service.</p>
+      <div class="card">
+        <div class="grid" id="clientForm">
+          <div class="field wide"><label for="c_company">Company or school name</label><input id="c_company" data-k="company" autocomplete="organization"></div>
+          <div class="field"><label for="c_contact">Contact name</label><input id="c_contact" data-k="contact" autocomplete="name"></div>
+          <div class="field"><label for="c_title">Title</label><input id="c_title" data-k="title" autocomplete="organization-title"></div>
+          <div class="field"><label for="c_email">Email</label><input id="c_email" data-k="email" type="email" inputmode="email" autocomplete="email"></div>
+          <div class="field"><label for="c_date">Proposal date</label><input id="c_date" data-k="date" type="date"></div>
+          <div class="field wide"><label for="c_address">Project address, or city and state</label><input id="c_address" data-k="address" autocomplete="street-address"></div>
+          <div class="field wide"><label for="c_facility">Facility type</label>
+            <select id="c_facility" data-k="facility">
+              <option value="">Choose one</option>
+              <option>School</option><option>Performing arts</option><option>Library</option>
+              <option>Workplace</option><option>Lobby</option><option>Healthcare</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field wide">
+            <div class="trio">
+              <div class="field"><label for="c_sqft">Sq ft</label><input id="c_sqft" data-k="sqft" type="text" inputmode="numeric"></div>
+              <div class="field"><label for="c_zones">Zones</label><input id="c_zones" data-k="zones" type="text" inputmode="numeric"></div>
+              <div class="field"><label for="c_buildings">Buildings</label><input id="c_buildings" data-k="buildings" type="text" inputmode="numeric"></div>
+            </div>
+            <p class="hint">Approximate is fine. Zones are the distinct spaces you'll design, like a lobby, a hallway or a library.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="svcHead">
+    <div class="wrap">
+      <p class="eyebrow">Step 2</p>
+      <h2 id="svcHead">Services</h2>
+      <p class="lead">Tap each service you want in this proposal. They stack into one document.</p>
+      <div class="card rates">
+        <span class="lbl">Your rates</span>
+        <div class="duo">
+          <div class="field"><label for="s_rate">Hourly rate</label><div class="money-in"><input id="s_rate" data-s="rate" type="text" inputmode="decimal"></div></div>
+          <div class="field"><label for="s_floor">Lowest you'll go</label><div class="money-in"><input id="s_floor" data-s="floor" type="text" inputmode="decimal"></div></div>
+        </div>
+        <p class="hint">Every line uses your hourly rate until you type a different one. Travel time uses half.</p>
+      </div>
+      <div class="picker" id="picker"></div>
+      <div class="tabs-shell" id="tabsShell">
+        <button class="arrow" id="tabLeft" type="button" aria-label="Scroll services left">&lsaquo;</button>
+        <div class="tabrow" id="tabrow" role="tablist" aria-label="Services in this proposal"></div>
+        <button class="arrow" id="tabRight" type="button" aria-label="Scroll services right">&rsaquo;</button>
+      </div>
+      <div id="panelArea"></div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="propHead">
+    <div class="wrap">
+      <p class="eyebrow">Step 3</p>
+      <h2 id="propHead">Proposal</h2>
+      <p class="lead">Set the opening, the timeline and the payment window, then download the signable PDF and the Word version for redlines.</p>
+      <div class="card">
+        <div class="grid" id="propForm">
+          <div class="field wide"><label for="p_overview">Overview</label><textarea id="p_overview" data-p="overview" rows="4"></textarea><p class="hint">Leave it blank and the overview is written from the services you picked.</p></div>
+          <div class="field wide"><label for="p_why">Why the last 10% matters</label><textarea id="p_why" data-p="why" rows="5"></textarea></div>
+          <div class="field"><label for="p_timeN">Estimated timeline</label><div class="duo"><input id="p_timeN" data-p="timeN" inputmode="numeric" aria-label="Timeline length"><select id="p_timeUnit" data-p="timeUnit" aria-label="Timeline unit"><option value="days">Days</option><option value="weeks">Weeks</option><option value="months">Months</option></select></div><p class="hint">From signing to final delivery. The agreement text updates to match.</p></div>
+          <div class="field"><label for="p_days">Invoices due in (days)</label><input id="p_days" data-p="invoiceDays" inputmode="numeric"><p class="hint" id="daysHint"></p></div>
+          <div class="field"><label for="p_law">Governing law (state)</label><input id="p_law" data-p="law"></div>
+        </div>
+      </div>
+      <div class="downloads">
+        <button class="btn pink" id="dlPdf" type="button">Download PDF</button>
+        <button class="btn ghost" id="dlDoc" type="button">Download Word</button>
+      </div>
+      <div class="msg" id="dlMsg" role="alert" hidden></div>
+      <p class="hint">Margin, costs and internal notes never print. Have a lawyer review the terms before the first proposal goes out.</p>
+    </div>
+  </section>
+</main>
+
+<aside class="totals" aria-label="Proposal totals">
+  <div class="wrap">
+    <div class="sums">
+      <div class="sum"><span class="k">Project fees</span><span class="v" id="tProject">$0</span></div>
+      <div class="sum" id="monthlyBox" hidden><span class="k">Monthly</span><span class="v" id="tMonthly">$0</span></div>
+      <div class="sum" id="procBox" hidden><span class="k">Procurement fees</span><span class="v" id="tProc">$0</span></div>
+    </div>
+    <div class="margin-line" id="tMargin">Internal margin shows once you add costs.</div>
+  </div>
+</aside>
+
+<dialog id="confirmDlg">
+  <h3 id="dlgTitle">Start over?</h3>
+  <p id="dlgText">This clears the client details and every service on screen.</p>
+  <div class="dialog-actions">
+    <button class="btn ghost small" id="dlgCancel" type="button">Keep working</button>
+    <button class="btn small" id="dlgOk" type="button">Clear it</button>
+  </div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function(){
+"use strict";
+var WM_WHITE="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";
+document.getElementById("wmImg").src="data:image/png;base64,"+WM_WHITE;
+
+/* ---------- Brand mark (8-point sun, drawn in currentColor) ---------- */
+function sunSVG(){
+  var c=50, base=27.4, half=14*Math.PI/180, out='';
+  out+='<circle cx="50" cy="50" r="47.5" fill="none" stroke="currentColor" stroke-width="3.4"/>';
+  out+='<circle cx="50" cy="50" r="22.8" fill="currentColor"/>';
+  for(var i=0;i<8;i++){
+    var a=-Math.PI/2+i*Math.PI/4, tip=(i%2===0)?46.5:40.6;
+    var x1=c+base*Math.cos(a-half), y1=c+base*Math.sin(a-half);
+    var x2=c+base*Math.cos(a+half), y2=c+base*Math.sin(a+half);
+    var tx=c+tip*Math.cos(a), ty=c+tip*Math.sin(a);
+    out+='<path fill="currentColor" d="M'+x1.toFixed(2)+' '+y1.toFixed(2)+' A'+base+' '+base+' 0 0 1 '+x2.toFixed(2)+' '+y2.toFixed(2)+' L'+tx.toFixed(2)+' '+ty.toFixed(2)+' Z"/>';
+  }
+  return out;
+}
+document.getElementById('sunMark').innerHTML=sunSVG();
+
+/* ---------- Defaults (all editable in the builder) ---------- */
+var DEFAULTS={rate:185, floor:150};
+var DEFAULT_WHY='Most projects run out of time, budget or attention right before the finishing layer, which is the art, color, graphics and detail people actually notice. That last 10% is what makes a building feel cared for, and it shapes how students, staff and visitors feel every time they walk in. Stodelle House exists to own that layer so it gets done well.';
+
+var NOT_INCLUDED_BASE=['Production and construction drawings','Permits and stamped documents','The cost of art, furniture and installation'];
+
+var ADDONS={
+  revision:{name:'Extra revision rounds', unit:'round', hours:6, half:false},
+  mockup:  {name:'Concept mockups or renderings', unit:'mockup', hours:8, half:false},
+  visit:   {name:'Extra site visits', unit:'visit', hours:6, half:false},
+  travel:  {name:'Travel time', unit:'trip', hours:5, half:true}
+};
+
+var CATALOG={
+  audit:{
+    name:'The Last 10% Audit', tab:'Audit', order:1, flat:true, price:1500, hours:8, visits:1,
+    coreLabel:'Walk-through and findings',
+    blurb:'A paid walk-through of your facility with written findings on what the space needs to feel finished.',
+    scope:[
+      ['Pre-visit review','We review your floor plans, photos and goals, and you receive a short list of what we’ll look at on site.'],
+      ['Walk-through','We walk the facility with your team and photograph every space in scope.'],
+      ['Findings report','We write up what each space needs to feel finished, and you receive a report with photos ranked by impact.'],
+      ['Findings review','We walk you through the report on a video call, and you receive a recommended next step with a fee range.']
+    ],
+    notIncluded:['Design work beyond the findings report'].concat(NOT_INCLUDED_BASE)
+  },
+  art:{
+    name:'Art Curation Program', tab:'Art Curation', order:2, visits:2, revisions:2,
+    coreLabel:'Art program curation',
+    blurb:'A curated art program chosen and placed for your facility, so every zone tells the same story.',
+    scope:[
+      ['Discovery and walk-through','We tour the facility and learn your mission, audience and budget, and you receive a summary of goals by zone.'],
+      ['Concept direction','We present the art direction for each zone, and you receive a concept deck with themes, mediums and sample works.'],
+      ['Curation','We source and shortlist artists and works for each zone, and you receive a curated selection with pricing.'],
+      ['Final art program','We finalize selections, sizes and placement, and you receive a placement plan and a purchase list.'],
+      ['Installation guidance','We coordinate with your installer, and you receive layouts, hanging heights and instructions.'],
+      ['Final walkthrough','We review the installed program on site, and you receive a short list of any adjustments.']
+    ],
+    notIncluded:NOT_INCLUDED_BASE.concat(['Framing, shipping and art handling','Structural review of wall mounting'])
+  },
+  ved:{
+    name:'Visual Environment Design', tab:'Visual Environment', order:3, visits:3, revisions:2,
+    coreLabel:'Visual environment design',
+    blurb:'Full design of the finishing layer, including color, graphics, art, the feel of the wayfinding and the direction for furnishings.',
+    scope:[
+      ['Discovery and walk-through','We tour the facility and meet your team, and you receive a summary of goals, zones and constraints.'],
+      ['Concept direction','We present the overall look and feel, and you receive mood boards with color and material direction for each zone.'],
+      ['Design development','We develop color, graphics, art placement, wayfinding feel and furnishings direction, and you receive zone-by-zone designs for review.'],
+      ['Final design package','We finalize every zone, and you receive a design package your vendors can price and build from.'],
+      ['Installation guidance','We answer vendor questions during installation, and you receive clarifications as they come up.'],
+      ['Final walkthrough','We review the finished spaces on site, and you receive a short list of any adjustments.']
+    ],
+    notIncluded:NOT_INCLUDED_BASE.concat(['Graphics fabrication and signage production','Code, structural or engineering review'])
+  },
+  master:{
+    name:'School Master Plan', tab:'Master Plan', order:4, visits:3, revisions:2, phases:1,
+    coreLabel:'Campus master plan',
+    blurb:'A campus-wide plan that sets the direction and standards for the visual environment across your buildings and phases.',
+    scope:[
+      ['Discovery and campus walk','We tour every building in scope and meet your leadership, and you receive a summary of goals, buildings and phases.'],
+      ['Campus vision','We present one visual identity for the campus, and you receive a vision deck with color, art and graphics direction.'],
+      ['Campus standards','We set the rules every building follows, and you receive standards for color, art, graphics and wayfinding feel.'],
+      ['Phasing plan','We map the work to your budget cycles, and you receive a phased plan with priorities and budget ranges.'],
+      ['Final master plan','We present the plan to your leadership or board, and you receive the finished master plan.']
+    ],
+    notIncluded:['Space-by-space design, which is quoted as Visual Environment Design'].concat(NOT_INCLUDED_BASE)
+  },
+  qaqc:{
+    name:'QA/QC Review', tab:'QA/QC', order:5, visits:0,
+    coreLabel:'Interior package review',
+    blurb:'A review of your firm’s interior package before it goes out, so finishes, art, graphics and furnishings hold together.',
+    scope:[
+      ['Package intake','We confirm scope, deadline and priorities, and you receive a review schedule.'],
+      ['Review','We check finishes, art, graphics and furnishings for consistency and gaps, and you receive marked-up comments.'],
+      ['Findings call','We walk your team through the comments, and you receive a prioritized issues log.'],
+      ['Back-check','We confirm your revisions closed each comment, and you receive a closed-out log.']
+    ],
+    notIncluded:['Redrawing or producing documents','Responsibility for the design of record','Code, structural or engineering review','Site visits']
+  }
+};
+var ORDER=['audit','art','ved','master','qaqc'];
+
+/* ---------- Helpers ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(ch){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];});}
+function num(v){var n=parseFloat(String(v==null?'':v).replace(/[^0-9.\-]/g,''));return isFinite(n)?n:0;}
+function money(n){n=Math.round((Number(n)||0)*100)/100;var whole=Math.abs(n)%1===0;return (n<0?'-$':'$')+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:whole?0:2,maximumFractionDigits:2});}
+function fmtRate(n){n=Math.round((Number(n)||0)*100)/100;return n%1===0?n.toLocaleString('en-US'):n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmtNum(n){n=Math.round((Number(n)||0)*100)/100;return n.toLocaleString('en-US',{maximumFractionDigits:2});}
+function $(id){return document.getElementById(id);}
+function uid(p){return p+'-'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+
+/* ---------- State ---------- */
+function blankState(){
+  return {
+    client:{company:'',contact:'',title:'',email:'',date:'',address:'',facility:'',sqft:'',zones:'',buildings:''},
+    settings:{rate:String(DEFAULTS.rate), floor:String(DEFAULTS.floor)},
+    services:[], active:null, version:1,
+    proposal:{overview:'',why:DEFAULT_WHY,timeN:'',timeUnit:'weeks',invoiceDays:'',law:'California'}
+  };
+}
+function newService(key){
+  var c=CATALOG[key];
+  return {
+    id:uid(key), key:key,
+    description:c.blurb,
+    core:{hours:'', hoursAuto:true, rate:'', rateAuto:true, price:c.flat?String(c.price):''},
+    visits:String(c.visits),
+    revisions:c.revisions!=null?String(c.revisions):'',
+    phases:c.phases!=null?String(c.phases):'',
+    addons:[],
+    scope:c.scope.map(function(s){return {title:s[0],text:s[1]};}),
+    notIncluded:c.notIncluded.join('\n'),
+    schedule:'standard', custom:[],
+    artBudget:'', buying:false, procPct:'15', travelExp:''
+  };
+}
+var state=blankState();
+var dirty=false;
+
+/* ---------- Math ---------- */
+function rateStd(){return num(state.settings.rate);}
+function rateFloor(){return num(state.settings.floor);}
+function extraTenK(sq){return sq>10000?Math.ceil((sq-10000)/10000):0;}
+
+function suggestedHours(s){
+  var c=state.client, z=num(c.zones), sq=num(c.sqft), b=num(c.buildings)||1, ph=num(s.phases)||1;
+  var extraZ=Math.max(0,z-4);
+  switch(s.key){
+    case 'audit':  return CATALOG.audit.hours;
+    case 'art':    return 81+10*extraZ+5*extraTenK(sq);
+    case 'ved':    return 162+14*extraZ+8*extraTenK(sq);
+    case 'master': return 108+20*Math.max(0,b-1)+10*Math.max(0,ph-1);
+    case 'qaqc':   return 55;
+  }
+  return 0;
+}
+function addonRate(a){var d=ADDONS[a.type];return a.rateAuto?(d.half?rateStd()/2:rateStd()):num(a.rate);}
+function addonHoursEach(a){return a.hoursAuto?ADDONS[a.type].hours:num(a.hours);}
+
+function serviceCalc(s){
+  var cat=CATALOG[s.key], r={};
+  r.hours=s.core.hoursAuto?suggestedHours(s):num(s.core.hours);
+  r.suggested=suggestedHours(s);
+  if(cat.flat){
+    r.price=num(s.core.price);
+    r.core=r.price;
+    r.effRate=r.hours>0?r.price/r.hours:0;
+    r.belowFloor=r.hours>0&&r.effRate<rateFloor();
+  }else{
+    r.rate=s.core.rateAuto?rateStd():num(s.core.rate);
+    r.core=r.hours*r.rate;
+    r.belowFloor=r.rate<rateFloor();
+  }
+  r.addons=s.addons.map(function(a){
+    var q=num(a.qty), h=addonHoursEach(a), rt=addonRate(a);
+    return {qty:q,hoursEach:h,rate:rt,amount:q*h*rt,belowFloor:!ADDONS[a.type].half&&rt<rateFloor()};
+  });
+  r.addonTotal=r.addons.reduce(function(t,a){return t+a.amount;},0);
+  r.fee=r.core+r.addonTotal;
+  return r;
+}
+function computeTotals(){
+  var t={project:0,monthly:0,cost:0,procurement:0};
+  state.services.forEach(function(s){t.project+=serviceCalc(s).fee;t.procurement+=purchaseCalc(s).fee;});
+  return t;
+}
+
+/* ---------- Totals bar ---------- */
+function renderTotals(){
+  var t=computeTotals();
+  $('tProject').textContent=money(t.project);
+  $('tMonthly').textContent=money(t.monthly);
+  $('monthlyBox').hidden=!(t.monthly>0);
+  $('tProc').textContent=money(t.procurement);
+  $('procBox').hidden=!(t.procurement>0);
+  var line=$('tMargin');
+  if(t.project>0 && t.cost>0){
+    var m=(t.project-t.cost)/t.project*100;
+    line.innerHTML='Internal margin: <strong>'+m.toFixed(0)+'%</strong> ('+money(t.project-t.cost)+' over cost)';
+  }else{
+    line.textContent='Internal margin shows once you add costs.';
+  }
+}
+
+/* ---------- Service picker ---------- */
+function renderPicker(){
+  var html='';
+  ORDER.forEach(function(k){
+    var c=CATALOG[k], on=state.services.some(function(s){return s.key===k;});
+    html+='<button type="button" class="pick" data-key="'+k+'" aria-pressed="'+on+'"><span class="plus">'+(on?'✓':'+')+'</span>'+esc(c.name)+'</button>';
+  });
+  $('picker').innerHTML=html;
+}
+$('picker').addEventListener('click',function(e){
+  var b=e.target.closest('.pick'); if(!b)return;
+  var key=b.getAttribute('data-key');
+  var existing=state.services.filter(function(s){return s.key===key;})[0];
+  if(existing){ state.active=existing.id; }
+  else{
+    var s=newService(key);
+    state.services.push(s);
+    state.services.sort(function(a,b){return CATALOG[a.key].order-CATALOG[b.key].order;});
+    state.active=s.id; dirty=true;
+  }
+  renderAll();
+  scrollActiveTabIntoView();
+});
+
+/* ---------- Tabs ---------- */
+function renderTabs(){
+  var shell=$('tabsShell'), row=$('tabrow');
+  shell.classList.toggle('on',state.services.length>0);
+  var html='';
+  state.services.forEach(function(s){
+    var sel=s.id===state.active;
+    html+='<button type="button" role="tab" class="tab" id="tab-'+s.id+'" aria-controls="panel" aria-selected="'+sel+'" tabindex="'+(sel?0:-1)+'" data-id="'+s.id+'">'+esc(CATALOG[s.key].tab)+'</button>';
+  });
+  row.innerHTML=html;
+  updateArrows();
+}
+function updateArrows(){
+  var row=$('tabrow'), l=$('tabLeft'), r=$('tabRight');
+  var overflow=row.scrollWidth>row.clientWidth+2;
+  l.hidden=r.hidden=!overflow;
+  l.disabled=row.scrollLeft<=2;
+  r.disabled=row.scrollLeft+row.clientWidth>=row.scrollWidth-2;
+}
+function scrollActiveTabIntoView(){
+  var t=document.querySelector('.tab[aria-selected="true"]'); if(!t)return;
+  var row=$('tabrow');
+  var left=t.offsetLeft-row.offsetLeft, right=left+t.offsetWidth;
+  if(left<row.scrollLeft) row.scrollLeft=left;
+  else if(right>row.scrollLeft+row.clientWidth) row.scrollLeft=right-row.clientWidth;
+  setTimeout(updateArrows,350);
+}
+$('tabrow').addEventListener('click',function(e){
+  var t=e.target.closest('.tab'); if(!t)return;
+  state.active=t.getAttribute('data-id'); renderTabs(); renderPanel(); scrollActiveTabIntoView();
+});
+$('tabrow').addEventListener('keydown',function(e){
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+  var i=state.services.findIndex(function(s){return s.id===state.active;});
+  i=(i+(e.key==='ArrowRight'?1:-1)+state.services.length)%state.services.length;
+  state.active=state.services[i].id; renderTabs(); renderPanel(); scrollActiveTabIntoView();
+  var t=document.querySelector('.tab[aria-selected="true"]'); if(t)t.focus();
+});
+$('tabrow').addEventListener('scroll',updateArrows,{passive:true});
+$('tabLeft').addEventListener('click',function(){$('tabrow').scrollLeft-=Math.max(160,$('tabrow').clientWidth*.7);});
+$('tabRight').addEventListener('click',function(){$('tabrow').scrollLeft+=Math.max(160,$('tabrow').clientWidth*.7);});
+window.addEventListener('resize',updateArrows);
+
+/* ---------- Panel ---------- */
+function activeService(){return state.services.filter(function(x){return x.id===state.active;})[0]||null;}
+
+function usesLine(s){
+  var c=state.client, z=num(c.zones), sq=num(c.sqft), b=num(c.buildings);
+  if(s.key==='art'||s.key==='ved'){
+    if(!z&&!sq) return 'Add square footage and zones under Client to size this. Base hours cover up to 4 zones and 10,000 sq ft.';
+    return 'Sized for '+(sq?fmtNum(sq)+' sq ft':'unknown sq ft')+' and '+(z?fmtNum(z)+' zones':'unknown zones')+'. Base hours cover up to 4 zones and 10,000 sq ft.';
+  }
+  if(s.key==='master') return 'Sized for '+(b?fmtNum(b):'1')+' building'+(b>1?'s':'')+' and the phases below. Base hours cover 1 building and 1 phase.';
+  if(s.key==='audit') return 'A flat fee. The hours are for your margin and never print.';
+  return 'Billed as hours times your rate. Most reviews take 50 to 60 hours.';
+}
+
+function coreLineHTML(s){
+  var cat=CATALOG[s.key];
+  if(cat.flat){
+    return '<div class="line" data-line="core">'+
+      '<div class="line-top"><span class="line-name">'+esc(cat.coreLabel)+'</span><span class="line-amt" data-out="core-amt"></span></div>'+
+      '<div class="duo">'+
+        '<div class="field"><label>Flat fee</label><div class="money-in"><input data-f="core.price" type="text" inputmode="decimal" value="'+esc(s.core.price)+'"></div></div>'+
+        '<div class="field"><label>Hours</label><input data-f="core.hours" type="text" inputmode="decimal"></div>'+
+      '</div>'+
+      '<p class="note" data-out="core-note"></p>'+
+    '</div>';
+  }
+  return '<div class="line" data-line="core">'+
+    '<div class="line-top"><span class="line-name">'+esc(cat.coreLabel)+'</span><span class="line-amt" data-out="core-amt"></span></div>'+
+    '<div class="duo">'+
+      '<div class="field"><label>Hours</label><input data-f="core.hours" type="text" inputmode="decimal"></div>'+
+      '<div class="field"><label>Rate</label><div class="money-in"><input data-f="core.rate" type="text" inputmode="decimal"></div></div>'+
+    '</div>'+
+    '<p class="note" data-out="core-note"></p>'+
+  '</div>';
+}
+
+function addonHTML(a){
+  var d=ADDONS[a.type];
+  return '<div class="line" data-addon="'+a.id+'">'+
+    '<div class="line-top"><span class="line-name">'+esc(d.name)+'</span><span class="line-amt" data-out="addon-amt"></span></div>'+
+    '<div class="trio">'+
+      '<div class="field"><label>How many</label><input data-a="qty" type="text" inputmode="decimal" value="'+esc(a.qty)+'"></div>'+
+      '<div class="field"><label>Hours each</label><input data-a="hours" type="text" inputmode="decimal"></div>'+
+      '<div class="field"><label>Rate</label><div class="money-in"><input data-a="rate" type="text" inputmode="decimal"></div></div>'+
+    '</div>'+
+    '<div class="line-foot"><p class="note" data-out="addon-note" style="margin:0"></p><button type="button" class="link" data-act="remove-addon">Remove</button></div>'+
+  '</div>';
+}
+
+function settingsHTML(s){
+  var cat=CATALOG[s.key], out='';
+  var fields=[];
+  fields.push('<div class="field"><label>Site visits included</label><input data-f="visits" type="text" inputmode="numeric" value="'+esc(s.visits)+'"></div>');
+  if(cat.revisions!=null) fields.push('<div class="field"><label>Revision rounds per phase</label><input data-f="revisions" type="text" inputmode="numeric" value="'+esc(s.revisions)+'"></div>');
+  if(cat.phases!=null) fields.push('<div class="field"><label>Phases</label><input data-f="phases" type="text" inputmode="numeric" value="'+esc(s.phases)+'"></div>');
+  out+='<div class="'+(fields.length>1?'duo':'')+'" style="'+(fields.length===3?'grid-template-columns:repeat(3,minmax(0,1fr))':'')+'">'+fields.join('')+'</div>';
+  if(cat.revisions!=null) out+='<p class="hint">Included at concept and again at final design. Extra rounds are an add-on below.</p>';
+  return out;
+}
+
+function scopeHTML(s){
+  var items=s.scope.map(function(st,i){
+    return '<li class="step" data-step="'+i+'"><div>'+
+      '<div class="field"><label class="sr" style="position:absolute;left:-9999px">Step title</label><input data-st="title" value="'+esc(st.title)+'" aria-label="Step '+(i+1)+' title"></div>'+
+      '<div class="field" style="margin-top:6px"><textarea data-st="text" rows="4" aria-label="Step '+(i+1)+' description">'+esc(st.text)+'</textarea></div>'+
+      '<div class="step-actions">'+
+        (i>0?'<button type="button" class="link" data-act="step-up">Move up</button>':'')+
+        '<button type="button" class="link" data-act="step-remove">Remove</button>'+
+      '</div></div></li>';
+  }).join('');
+  return '<ol class="steps">'+items+'</ol><div style="margin-top:12px"><button type="button" class="addon-btn" data-act="step-add">+ Add a step</button></div>';
+}
+
+function renderPanel(){
+  var area=$('panelArea');
+  if(!state.services.length){
+    area.innerHTML='<div class="empty"><strong>No services yet</strong>Tap a service above to start this proposal.</div>';
+    return;
+  }
+  var s=activeService()||state.services[0];
+  state.active=s.id;
+  var cat=CATALOG[s.key];
+  var addonButtons=Object.keys(ADDONS).map(function(k){
+    return '<button type="button" class="addon-btn" data-act="add-addon" data-type="'+k+'">+ '+esc(ADDONS[k].name)+'</button>';
+  }).join('');
+
+  area.innerHTML=
+    '<div class="panel" id="panel" role="tabpanel" aria-labelledby="tab-'+s.id+'" data-sid="'+s.id+'">'+
+      '<p class="eyebrow">Service</p>'+
+      '<h3>'+esc(cat.name)+'</h3>'+
+      '<div class="field"><label for="desc">Description in the proposal</label><textarea id="desc" data-f="description" rows="3">'+esc(s.description)+'</textarea></div>'+
+
+      '<div class="block"><div class="block-head"><h4>Fee</h4></div>'+
+        '<p class="uses" data-out="uses"></p>'+
+        coreLineHTML(s)+
+        '<div data-out="addons">'+s.addons.map(addonHTML).join('')+'</div>'+
+        '<span class="lbl">Add-ons</span><div class="addons">'+addonButtons+'</div>'+
+        '<div class="svc-total"><span class="k">Service total</span><span class="v" data-out="svc-total"></span></div>'+
+      '</div>'+
+
+      '<div class="block"><div class="block-head"><h4>What’s included</h4></div>'+settingsHTML(s)+travelFieldHTML(s)+'</div>'+
+      purchasesHTML(s)+paymentHTML(s)+
+
+      '<div class="block"><div class="block-head"><h4>Scope</h4></div>'+
+        '<p class="uses">Numbered in the order the work happens. Keep each one to a short title and one sentence.</p>'+
+        scopeHTML(s)+
+      '</div>'+
+
+      '<div class="block"><div class="block-head"><h4>Not included</h4></div>'+
+        '<div class="field"><label for="notinc">One item per line</label><textarea id="notinc" data-f="notIncluded" rows="5">'+esc(s.notIncluded)+'</textarea></div>'+
+      '</div>'+
+
+      '<div class="panel-foot"><button type="button" class="btn ghost small" data-act="remove-svc">Remove from proposal</button></div>'+
+    '</div>';
+  updatePanelNumbers();
+}
+
+/* Update numbers in place so typing never loses focus */
+function setVal(el,v){ if(el && document.activeElement!==el) el.value=v; }
+function updatePanelNumbers(){
+  var panel=$('panel'); if(!panel)return;
+  var s=activeService(); if(!s)return;
+  var cat=CATALOG[s.key], r=serviceCalc(s);
+
+  panel.querySelector('[data-out="uses"]').textContent=usesLine(s);
+
+  var hIn=panel.querySelector('[data-f="core.hours"]');
+  setVal(hIn, s.core.hoursAuto?fmtNum(r.suggested):s.core.hours);
+  hIn.classList.toggle('auto',s.core.hoursAuto);
+  var rIn=panel.querySelector('[data-f="core.rate"]');
+  if(rIn){ setVal(rIn, s.core.rateAuto?fmtRate(rateStd()):s.core.rate); rIn.classList.toggle('auto',s.core.rateAuto); }
+
+  panel.querySelector('[data-out="core-amt"]').textContent=money(r.core);
+  var note=panel.querySelector('[data-out="core-note"]'), parts=[], cls='note';
+  if(cat.flat){
+    parts.push('Works out to '+money(r.effRate)+' an hour.');
+    if(r.belowFloor){parts.push('That’s below your '+money(rateFloor())+' floor.');cls='note warn';}
+  }else{
+    parts.push(fmtNum(r.hours)+' hours at '+money(r.rate)+'.');
+    if(r.belowFloor){parts.push('This rate is below your '+money(rateFloor())+' floor.');cls='note warn';}
+  }
+  if(!s.core.hoursAuto) parts.push('<button type="button" class="link" data-act="reset-hours">Use suggested '+fmtNum(r.suggested)+' hours</button>');
+  if(!cat.flat&&!s.core.rateAuto) parts.push('<button type="button" class="link" data-act="reset-rate">Use your standard rate</button>');
+  note.className=cls; note.innerHTML=parts.join(' ');
+
+  s.addons.forEach(function(a,i){
+    var el=panel.querySelector('[data-addon="'+a.id+'"]'); if(!el)return;
+    var ar=r.addons[i], d=ADDONS[a.type];
+    var hi=el.querySelector('[data-a="hours"]'), ri=el.querySelector('[data-a="rate"]');
+    setVal(hi, a.hoursAuto?fmtNum(d.hours):a.hours); hi.classList.toggle('auto',a.hoursAuto);
+    setVal(ri, a.rateAuto?fmtRate(ar.rate):a.rate); ri.classList.toggle('auto',a.rateAuto);
+    el.querySelector('[data-out="addon-amt"]').textContent=money(ar.amount);
+    var n=el.querySelector('[data-out="addon-note"]');
+    var txt=fmtNum(ar.qty)+' '+d.unit+(ar.qty===1?'':'s')+' × '+fmtNum(ar.hoursEach)+' hrs × '+money(ar.rate);
+    if(d.half&&a.rateAuto) txt+=', half your rate';
+    if(ar.belowFloor){n.className='note warn';txt+='. Below your floor.';} else n.className='note';
+    n.style.margin='0'; n.textContent=txt;
+  });
+  panel.querySelector('[data-out="svc-total"]').textContent=money(r.fee);
+  updatePaymentNumbers(panel,s,r);
+}
+
+/* Panel input handling */
+$('panelArea').addEventListener('input',function(e){
+  var s=activeService(); if(!s)return;
+  var t=e.target, f=t.getAttribute('data-f'), a=t.getAttribute('data-a'), st=t.getAttribute('data-st');
+  if(f){
+    if(f==='core.hours'){ s.core.hours=t.value; s.core.hoursAuto=t.value.trim()===''; }
+    else if(f==='core.rate'){ s.core.rate=t.value; s.core.rateAuto=t.value.trim()===''; }
+    else if(f==='core.price'){ s.core.price=t.value; }
+    else if(f==='buying'){ return; }
+    else if(f==='schedule'){
+      var prevRows=scheduleRows(s,serviceCalc(s).fee);
+      s.schedule=t.value;
+      if(t.value==='custom'&&!s.custom.length) s.custom=prevRows.map(function(x){return {label:x.label,pct:String(x.pct)};});
+      dirty=true; renderPanel(); renderTotals(); return;
+    }
+    else { s[f]=t.value; }
+  }else if(a){
+    var id=t.closest('[data-addon]').getAttribute('data-addon');
+    var ad=s.addons.filter(function(x){return x.id===id;})[0];
+    if(a==='qty') ad.qty=t.value;
+    if(a==='hours'){ ad.hours=t.value; ad.hoursAuto=t.value.trim()===''; }
+    if(a==='rate'){ ad.rate=t.value; ad.rateAuto=t.value.trim()===''; }
+  }else if(st){
+    var i=+t.closest('[data-step]').getAttribute('data-step');
+    s.scope[i][st]=t.value;
+  }else if(t.getAttribute('data-sc')){
+    var i2=+t.closest('[data-srow]').getAttribute('data-srow');
+    s.custom[i2][t.getAttribute('data-sc')]=t.value;
+  }else return;
+  dirty=true; updatePanelNumbers(); renderTotals();
+});
+$('panelArea').addEventListener('change',function(e){
+  var s=activeService(); if(!s)return;
+  if(e.target.getAttribute('data-f')==='buying'){ s.buying=e.target.checked; dirty=true; renderPanel(); renderTotals(); }
+});
+$('panelArea').addEventListener('click',function(e){
+  var b=e.target.closest('[data-act]'); if(!b)return;
+  var s=activeService(); if(!s)return;
+  var act=b.getAttribute('data-act');
+  if(act==='add-addon'){
+    s.addons.push({id:uid('a'),type:b.getAttribute('data-type'),qty:'1',hours:'',hoursAuto:true,rate:'',rateAuto:true});
+    dirty=true; renderPanel(); renderTotals();
+    var last=$('panel').querySelector('[data-addon="'+s.addons[s.addons.length-1].id+'"]');
+    if(last) last.scrollIntoView({block:'center'});
+  }else if(act==='remove-addon'){
+    var id=b.closest('[data-addon]').getAttribute('data-addon');
+    s.addons=s.addons.filter(function(x){return x.id!==id;}); dirty=true; renderPanel(); renderTotals();
+  }else if(act==='reset-hours'){ s.core.hours=''; s.core.hoursAuto=true; dirty=true; updatePanelNumbers(); renderTotals(); }
+  else if(act==='reset-rate'){ s.core.rate=''; s.core.rateAuto=true; dirty=true; updatePanelNumbers(); renderTotals(); }
+  else if(act==='sched-add'){ s.custom.push({label:'',pct:''}); dirty=true; renderPanel(); var ls=$('panel').querySelectorAll('[data-sc="label"]'); if(ls.length)ls[ls.length-1].focus(); }
+  else if(act==='sched-remove'){ s.custom.splice(+b.closest('[data-srow]').getAttribute('data-srow'),1); dirty=true; renderPanel(); }
+  else if(act==='step-add'){ s.scope.push({title:'',text:''}); dirty=true; renderPanel();
+    var inputs=$('panel').querySelectorAll('[data-st="title"]'); inputs[inputs.length-1].focus(); }
+  else if(act==='step-remove'){ var i=+b.closest('[data-step]').getAttribute('data-step'); s.scope.splice(i,1); dirty=true; renderPanel(); }
+  else if(act==='step-up'){ var j=+b.closest('[data-step]').getAttribute('data-step'); var tmp=s.scope[j-1]; s.scope[j-1]=s.scope[j]; s.scope[j]=tmp; dirty=true; renderPanel(); }
+  else if(act==='remove-svc'){
+    var cat=CATALOG[s.key];
+    askConfirm('Remove '+cat.name+'?','Anything you entered for this service will be cleared.','Remove it',function(){
+      var i=state.services.indexOf(s);
+      state.services.splice(i,1);
+      var next=state.services[i]||state.services[i-1];
+      state.active=next?next.id:null; dirty=true; renderAll();
+    });
+  }
+});
+
+/* ---------- Client form and rates ---------- */
+$('clientForm').addEventListener('input',function(e){
+  var k=e.target.getAttribute('data-k'); if(!k)return;
+  state.client[k]=e.target.value; dirty=true; updatePanelNumbers(); renderTotals(); updateProposalHints();
+});
+$('clientForm').addEventListener('change',function(e){
+  var k=e.target.getAttribute('data-k'); if(!k)return;
+  if(k==='sqft'||k==='zones'||k==='buildings'){
+    var n=num(e.target.value); e.target.value=n?fmtNum(n):''; state.client[k]=e.target.value;
+  }
+});
+document.querySelector('.rates').addEventListener('input',function(e){
+  var k=e.target.getAttribute('data-s'); if(!k)return;
+  state.settings[k]=e.target.value; dirty=true; updatePanelNumbers(); renderTotals();
+});
+function fillForms(){
+  Array.prototype.forEach.call(document.querySelectorAll('#clientForm [data-k]'),function(el){el.value=state.client[el.getAttribute('data-k')]||'';});
+  $('s_rate').value=state.settings.rate; $('s_floor').value=state.settings.floor;
+  fillProposal();
+}
+
+/* ---------- Confirm dialog ---------- */
+var pendingOk=null;
+function askConfirm(title,text,okLabel,onOk){
+  $('dlgTitle').textContent=title; $('dlgText').textContent=text; $('dlgOk').textContent=okLabel;
+  pendingOk=onOk;
+  var d=$('confirmDlg');
+  if(typeof d.showModal==='function'){d.showModal();}
+  else if(window.confirm(title+'\n\n'+text)){onOk();}
+}
+$('dlgCancel').addEventListener('click',function(){pendingOk=null;$('confirmDlg').close();});
+$('dlgOk').addEventListener('click',function(){var f=pendingOk;pendingOk=null;$('confirmDlg').close();if(f)f();});
+
+$('newBtn').addEventListener('click',function(){
+  function reset(){state=blankState();dirty=false;fillForms();renderAll();window.scrollTo(0,0);}
+  if(!dirty){reset();return;}
+  askConfirm('Start a new proposal?','You have changes that aren’t saved. Starting over clears them.','Clear and start new',reset);
+});
+window.addEventListener('beforeunload',function(e){if(dirty){e.preventDefault();e.returnValue='';}});
+
+/* ================= Payments, purchases and proposal ================= */
+var SUMMARY={
+  audit:'A walk-through and written findings on what your facility needs to feel finished.',
+  art:'A curated art program selected and placed for your facility.',
+  ved:'Design of the finishing layer, including color, graphics, art, wayfinding feel and furnishings direction.',
+  master:'A campus-wide plan for the visual environment across buildings and phases.',
+  qaqc:'A review of your interior package before it goes out.'
+};
+var PROGRAMS=['art','ved','master'];
+function hasKey(k){return state.services.some(function(s){return s.key===k;});}
+
+function standardSchedule(s,fee){
+  if(s.key==='audit') return [['At signing',100]];
+  if(s.key==='qaqc') return [['At signing',50],['When the review is delivered',50]];
+  if(fee<25000) return [['At signing, to reserve your start date',50],['At final design delivery',50]];
+  return [['At signing, to reserve your start date',40],['At concept approval',30],['At final design delivery',30]];
+}
+function scheduleRows(s,fee){
+  var rows;
+  if(s.schedule==='upfront') rows=[['At signing',100]];
+  else if(s.schedule==='deposit') rows=[['At signing, to reserve your start date',50],['At final delivery',50]];
+  else if(s.schedule==='custom') rows=s.custom.map(function(c){return [c.label,num(c.pct)];});
+  else rows=standardSchedule(s,fee);
+  var total=rows.reduce(function(t,r){return t+r[1];},0), exact=Math.abs(total-100)<0.001;
+  var cents=Math.round(fee*100), used=0;
+  return rows.map(function(r,i){
+    var amt=(exact&&i===rows.length-1)?cents-used:Math.round(cents*r[1]/100);
+    used+=amt; return {label:r[0],pct:r[1],amount:amt/100};
+  });
+}
+function purchaseCalc(s){
+  var allowed=(s.key==='art'||s.key==='ved');
+  var budget=allowed?num(s.artBudget):0, pct=num(s.procPct);
+  return {budget:budget, buying:allowed&&!!s.buying, pct:pct, fee:(allowed&&s.buying)?budget*pct/100:0, travel:num(s.travelExp)};
+}
+
+function scheduleOptions(s){
+  var std=s.key==='audit'?'Paid in full at signing (standard)':s.key==='qaqc'?'50% at signing, 50% at delivery (standard)':'Standard for this fee size';
+  var opts=[['standard',std],['upfront','Paid in full at signing'],['deposit','50% deposit, 50% at completion'],['custom','Your own milestones']];
+  if(s.key==='audit') opts.splice(1,1);
+  return opts.map(function(o){return '<option value="'+o[0]+'"'+(s.schedule===o[0]?' selected':'')+'>'+esc(o[1])+'</option>';}).join('');
+}
+function paymentHTML(s){
+  var body='';
+  if(s.schedule==='custom'){
+    body=s.custom.map(function(c,i){
+      return '<div class="srow" data-srow="'+i+'">'+
+        '<input data-sc="label" value="'+esc(c.label)+'" aria-label="Milestone '+(i+1)+' name">'+
+        '<div class="pct-in"><input data-sc="pct" inputmode="decimal" value="'+esc(c.pct)+'" aria-label="Milestone '+(i+1)+' percent"></div>'+
+        '<span data-out="samt"></span>'+
+        '<button type="button" class="x" data-act="sched-remove" aria-label="Remove milestone">&times;</button></div>';
+    }).join('')+
+    '<p class="note" data-out="sched-note"></p>'+
+    '<div style="margin-top:10px"><button type="button" class="addon-btn" data-act="sched-add">+ Add a milestone</button></div>';
+  }else{
+    body='<div data-out="sched-list"></div>';
+  }
+  return '<div class="block"><div class="block-head"><h4>Payment schedule</h4></div>'+
+    '<div class="field" style="margin-bottom:12px"><label for="schedSel">How the client pays</label><select id="schedSel" data-f="schedule">'+scheduleOptions(s)+'</select></div>'+
+    body+'</div>';
+}
+function purchasesHTML(s){
+  if(s.key!=='art'&&s.key!=='ved') return '';
+  return '<div class="block"><div class="block-head"><h4>Art and installation purchases</h4></div>'+
+    '<p class="uses">The client pays these at cost, and they never sit inside your fee. The proposal shows them as a separate estimate.</p>'+
+    '<div class="field"><label for="artBudget">Client’s art and installation budget</label><div class="money-in"><input id="artBudget" data-f="artBudget" inputmode="decimal" value="'+esc(s.artBudget)+'"></div></div>'+
+    '<label class="check"><input type="checkbox" data-f="buying"'+(s.buying?' checked':'')+'> Stodelle House handles the buying</label>'+
+    (s.buying?'<div class="field" style="max-width:160px"><label for="procPct">Procurement fee</label><div class="pct-in"><input id="procPct" data-f="procPct" inputmode="decimal" value="'+esc(s.procPct)+'"></div></div>':'')+
+    '<p class="note" data-out="proc-note"></p></div>';
+}
+function travelFieldHTML(s){
+  return '<div class="field" style="margin-top:12px"><label for="travelExp">Travel expenses estimate, at cost</label><div class="money-in"><input id="travelExp" data-f="travelExp" inputmode="decimal" value="'+esc(s.travelExp)+'"></div>'+
+    '<p class="hint">Airfare, hotel and car. Leave it blank if there’s no travel.</p></div>';
+}
+function updatePaymentNumbers(panel,s,r){
+  var sr=scheduleRows(s,r.fee);
+  if(s.schedule==='custom'){
+    Array.prototype.forEach.call(panel.querySelectorAll('[data-srow]'),function(row,i){
+      var x=sr[i]; row.querySelector('[data-out="samt"]').textContent=x?money(x.amount):'';
+    });
+    var tot=s.custom.reduce(function(a,c){return a+num(c.pct);},0), sn=panel.querySelector('[data-out="sched-note"]');
+    if(Math.abs(tot-100)<0.001){sn.className='note';sn.textContent='Milestones total 100%.';}
+    else{sn.className='note warn';sn.textContent='Milestones total '+fmtNum(tot)+'%. They need to reach 100% before you can download.';}
+  }else{
+    panel.querySelector('[data-out="sched-list"]').innerHTML=sr.map(function(x){
+      return '<div class="srow ro"><span>'+esc(x.label)+'</span><span>'+fmtNum(x.pct)+'%</span><span>'+money(x.amount)+'</span></div>';
+    }).join('');
+  }
+  var pn=panel.querySelector('[data-out="proc-note"]');
+  if(pn){
+    var p=purchaseCalc(s);
+    if(!p.budget) pn.textContent='Add the client’s budget to show it in the proposal.';
+    else if(p.buying) pn.textContent='Procurement fee: '+money(p.fee)+' on '+money(p.budget)+' of purchases, billed with each purchase.';
+    else pn.textContent='The client buys directly from your vendors, so there’s no procurement fee.';
+  }
+}
+
+/* ---------- Proposal section ---------- */
+function invoiceDaysAuto(){return state.client.facility==='School'?30:15;}
+function invoiceDays(){var v=num(state.proposal.invoiceDays);return v>0?v:invoiceDaysAuto();}
+function fillProposal(){
+  var p=state.proposal;
+  $('p_overview').value=p.overview; $('p_why').value=p.why; $('p_timeN').value=p.timeN;
+  $('p_timeUnit').value=p.timeUnit; $('p_days').value=p.invoiceDays; $('p_law').value=p.law;
+  updateProposalHints();
+}
+function updateProposalHints(){
+  $('p_days').placeholder=String(invoiceDaysAuto());
+  $('daysHint').textContent='Leave it blank to use '+invoiceDaysAuto()+' days, which is the default for '+(state.client.facility==='School'?'schools':'companies')+'.';
+  $('p_overview').placeholder=state.services.length?autoOverview():'Leave it blank and the overview is written from the services you pick.';
+}
+$('propForm').addEventListener('input',function(e){
+  var k=e.target.getAttribute('data-p'); if(!k)return;
+  state.proposal[k]=e.target.value; dirty=true;
+});
+function clearMsgIfValid(){var b=$('dlMsg');if(b&&!b.hidden&&!validate().length)b.hidden=true;}
+document.addEventListener('input',clearMsgIfValid);
+$('dlPdf').addEventListener('click',function(){trySave('pdf');});
+$('dlDoc').addEventListener('click',function(){trySave('docx');});
+
+/* ---------- Validation ---------- */
+function validate(){
+  var p=[];
+  if(!state.services.length) p.push('Add at least one service.');
+  if(!state.client.company.trim()) p.push('Add the company or school name under Client.');
+  state.services.forEach(function(s){
+    var name=CATALOG[s.key].name, r=serviceCalc(s);
+    if(!(r.fee>0)) p.push(name+' doesn’t have a fee yet.');
+    if(s.schedule==='custom'){
+      var t=s.custom.reduce(function(a,c){return a+num(c.pct);},0);
+      if(Math.abs(t-100)>0.001) p.push('The payment milestones for '+name+' add up to '+fmtNum(t)+'%. They need to total 100%.');
+      if(s.custom.some(function(c){return !String(c.label).trim();})) p.push('Every payment milestone for '+name+' needs a name.');
+    }
+  });
+  return p;
+}
+function showMsg(html){var b=$('dlMsg');b.hidden=false;b.innerHTML=html;b.scrollIntoView({block:'center',behavior:'smooth'});}
+function fileBase(){
+  var co=(state.client.company||'Client').replace(/[\\\/:*?"<>|#%]+/g,'').replace(/\s+/g,' ').trim();
+  return 'Stodelle House Proposal - '+co+' - v'+state.version;
+}
+function saveBlob(blob,name){
+  var a=document.createElement('a'), u=URL.createObjectURL(blob);
+  a.href=u; a.download=name; a.rel='noopener'; document.body.appendChild(a); a.click();
+  setTimeout(function(){URL.revokeObjectURL(u);a.remove();},4000);
+}
+function trySave(kind){
+  var probs=validate();
+  if(probs.length){showMsg('<strong>Before you download</strong><ul>'+probs.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>');return;}
+  $('dlMsg').hidden=true;
+  try{
+    var model=buildModel();
+    if(kind==='pdf'){
+      if(!(window.jspdf&&window.jspdf.jsPDF)){showMsg('<strong>The PDF tool didn’t load.</strong> Check your connection and refresh the page.');return;}
+      saveBlob(makePDF(model).output('blob'),fileBase()+'.pdf');
+    }else{
+      saveBlob(makeDocx(model),fileBase()+'.docx');
+    }
+  }catch(err){
+    showMsg('<strong>Something went wrong building the file.</strong> '+esc(err&&err.message||err));
+    if(window.console)console.error(err);
+  }
+}
+
+/* ================= Document model (shared by PDF and Word) ================= */
+function todayISO(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function fmtDate(iso){if(!iso)return '';var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);return isNaN(d)?iso:d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
+function plural(n,w){return fmtNum(n)+' '+w+(n===1?'':'s');}
+function listJoin(a){if(a.length<=1)return a.join('');if(a.length===2)return a[0]+' and '+a[1];return a.slice(0,-1).join(', ')+' and '+a[a.length-1];}
+function timelineText(){var n=num(state.proposal.timeN);if(!n)return '';var u=state.proposal.timeUnit||'weeks';return fmtNum(n)+' '+(n===1?u.replace(/s$/,''):u);}
+function autoOverview(){
+  var c=state.client, names=state.services.map(function(s){return CATALOG[s.key].name;});
+  var who=c.company.trim()||'your team', where=c.address.trim()?' at '+c.address.trim():'';
+  return 'This proposal covers '+listJoin(names)+' for '+who+where+'. Each section explains what Stodelle House will do, what you’ll receive and what it costs, and the terms of our agreement follow at the end.';
+}
+function serviceIncludes(s){
+  var cat=CATALOG[s.key], parts=[], v=num(s.visits), r=num(s.revisions);
+  if(v>0) parts.push(plural(v,'site visit'));
+  if(cat.revisions!=null&&r>0) parts.push(plural(r,'revision round')+' at concept and again at final design');
+  return parts.length?'Includes '+listJoin(parts)+'.':'';
+}
+function investmentRows(s,r){
+  var cat=CATALOG[s.key], rows=[];
+  if(cat.flat) rows.push([cat.coreLabel+', flat fee',money(r.core)]);
+  else if(s.key==='qaqc') rows.push([cat.coreLabel+', estimated at '+fmtNum(r.hours)+' hours at '+money(r.rate)+' an hour',money(r.core)]);
+  else rows.push([cat.coreLabel,money(r.core)]);
+  s.addons.forEach(function(a,i){
+    var ar=r.addons[i], d=ADDONS[a.type]; if(!ar.qty) return;
+    rows.push([d.name+', '+plural(ar.qty,d.unit)+' at '+money(ar.hoursEach*ar.rate)+' each',money(ar.amount)]);
+  });
+  return rows;
+}
+function termsList(){
+  var has=hasKey, design=PROGRAMS.some(has);
+  var buyers=state.services.filter(function(s){return purchaseCalc(s).buying;});
+  var travel=state.services.some(function(s){return num(s.visits)>0||num(s.travelExp)>0||s.addons.some(function(a){return a.type==='travel'||a.type==='visit';});});
+  var rate=money(rateStd()), tl=timelineText(), law=(state.proposal.law||'California').trim()||'California';
+  var T=[];
+  T.push(['Scope of work','Stodelle House will provide the services described in this proposal. Work outside that scope, such as added zones, buildings or deliverables, needs a written change order before it begins.']);
+  T.push(['Fees and deposits','The payment due at signing reserves your start date and is applied to the fees for that service. It is non-refundable once work begins.']);
+  T.push(['Invoices','Invoices are due within '+invoiceDays()+' days of the invoice date.']);
+  T.push(['Late payment','Balances not paid by the due date accrue interest of 1.5% a month, or the highest rate the law allows if that is lower. Stodelle House may pause work while a balance is past due, and the timeline moves by the length of the pause.']);
+  if(has('audit')&&!design) T.push(['Audit credit','The audit fee is credited toward an Art Curation Program, Visual Environment Design or School Master Plan agreement signed within 60 days of the findings review.']);
+  if(design){
+    T.push(['Revisions and change orders','Each design phase includes the revision rounds listed for that service. Additional rounds, and changes to work you have already approved, are billed at '+rate+' an hour as change orders you approve in writing before the work begins.']);
+    T.push(['Approvals','Each phase moves forward once you approve it in writing, and email counts. Stodelle House waits for approval before starting the next phase, and delays in approval extend the timeline.']);
+  }
+  T.push(['Information you provide','You will provide accurate floor plans, measurements, photos'+(has('qaqc')?', documents':'')+' and site access when they are needed. Stodelle House relies on that information and is not responsible for errors that come from it.']);
+  if(travel) T.push(['Travel and expenses','Airfare, lodging, rental cars and similar costs are billed at cost with no markup, and Stodelle House will get your approval before booking. Travel time is billed at half the hourly rate, and site visits beyond those included are billed at '+rate+' an hour for time on site.']);
+  if(buyers.length) T.push(['Purchases','When Stodelle House buys art, furniture or installation services for you, you pay for each purchase in full before it is ordered. Orders are final once placed, and returns follow each vendor’s policy. A procurement fee of '+fmtNum(buyers[0].procPct?num(buyers[0].procPct):0)+'% of the purchase cost is billed with each purchase. You own each item once it is paid for, and vendor and artist warranties pass to you.']);
+  else if(has('art')||has('ved')) T.push(['Purchases','You buy art, furniture and installation directly from the vendors Stodelle House recommends. Those costs are not part of the fees in this proposal, and you own what you buy.']);
+  T.push(['Licensed work','Stodelle House does not prepare production or construction drawings, obtain permits or provide stamped documents. Code compliance and structural and engineering decisions belong to your licensed architects, engineers and contractors.'+(has('qaqc')?' QA/QC comments are advisory, and the architect of record remains responsible for the documents.':'')]);
+  if(design) T.push(['Installation','Installation is done by your vendors unless both parties agree otherwise in writing. Stodelle House provides guidance but is not responsible for vendor workmanship, schedules or site safety.']);
+  if(design||has('audit')) T.push(['Design ownership','Stodelle House keeps ownership of its designs, concepts and reports. Once you have paid in full, you have a license to use them for this facility, and using them anywhere else needs written permission.']);
+  if(has('qaqc')) T.push(['Your documents','Your firm keeps ownership of its documents, and the review comments are yours to use on this project.']);
+  if(design||has('audit')) T.push(['Photography and portfolio','Stodelle House may photograph the finished spaces and use the images in its portfolio and marketing. Images will not show identifiable students, patients or staff without written consent, and you can ask that details revealing a secure location be left out.']);
+  T.push(['Confidentiality','Each party will keep the other’s non-public business information confidential and use it only for this project.']);
+  T.push(['Independent contractor','Stodelle House works as an independent contractor, not as your employee or agent, and is responsible for its own taxes and insurance.']);
+  T.push(['Timeline','Each service starts at signing and runs until its final delivery. '+(tl?'The estimated timeline is '+tl+' from signing. ':'The timeline will be confirmed at kickoff. ')+'Delays in approvals, access or information extend the timeline.']);
+  T.push(['Termination','Either party may end this agreement with 14 days’ written notice. You will pay for work completed through the end date and any approved expenses, and the payment made at signing is retained.']);
+  T.push(['Limitation of liability','Stodelle House’s total liability under this agreement is limited to the fees you have paid under it. Neither party is liable to the other for indirect or consequential damages.']);
+  T.push(['Governing law','This agreement is governed by the laws of the State of '+law+'.']);
+  T.push(['Entire agreement','This proposal and these terms are the full agreement between the parties and replace earlier discussions. Changes must be in writing and signed by both parties, and electronic signatures count as originals.']);
+  return T;
+}
+function buildModel(){
+  var c=state.client, svcs=state.services, calcs=svcs.map(serviceCalc), pr=svcs.map(purchaseCalc);
+  var total=calcs.reduce(function(t,r){return t+r.fee;},0), B=[];
+  var cover={company:c.company.trim(), contact:c.contact.trim(), title:c.title.trim(), email:c.email.trim(), address:c.address.trim(),
+    date:fmtDate(c.date)||fmtDate(todayISO()),
+    summaries:svcs.map(function(s){return [CATALOG[s.key].name,SUMMARY[s.key]];})};
+
+  B.push({t:'band',eyebrow:'Proposal for '+(cover.company||'you'),title:'Overview'});
+  B.push({t:'p',text:state.proposal.overview.trim()||autoOverview()});
+  B.push({t:'h2',text:'Investment'});
+  B.push({t:'table',cols:[{label:'Service',w:.7},{label:'Fee',w:.3,align:'right'}],
+    rows:svcs.map(function(s,i){return [CATALOG[s.key].name,money(calcs[i].fee)];}),total:['Project fees',money(total)],totalCard:true});
+  var budget=0,proc=0,travel=0,pct=null;
+  pr.forEach(function(p){budget+=p.budget;proc+=p.fee;travel+=p.travel;if(p.buying&&pct===null)pct=p.pct;});
+  if(budget||proc||travel){
+    var rows=[];
+    if(budget) rows.push(['Art and installation budget, paid at cost',money(budget)]);
+    if(proc) rows.push(['Procurement fee, '+fmtNum(pct)+'% of purchases',money(proc)]);
+    if(travel) rows.push(['Travel expenses, billed at cost',money(travel)]);
+    B.push({t:'h2',text:'Purchases and expenses'});
+    B.push({t:'table',cols:[{label:'Estimates, separate from the fees above',w:.7},{label:'At cost',w:.3,align:'right'}],rows:rows});
+  }
+  if(state.proposal.why.trim()){B.push({t:'card',kicker:'Who owns the last 10%?',title:'Why the last 10% matters',text:state.proposal.why.trim()});}
+
+  svcs.forEach(function(s,i){
+    var r=calcs[i], cat=CATALOG[s.key], p=pr[i];
+    B.push({t:'newpage'});
+    B.push({t:'band',eyebrow:'Service '+(i+1)+' of '+svcs.length,title:cat.name});
+    if(s.description.trim()) B.push({t:'p',text:s.description.trim()});
+    var inc=serviceIncludes(s); if(inc) B.push({t:'p',text:inc,muted:true});
+    var steps=s.scope.filter(function(st){return st.title.trim()||st.text.trim();}).map(function(st){return {title:st.title.trim(),text:st.text.trim()};});
+    if(steps.length){B.push({t:'h2',text:'Scope'});B.push({t:'steps',items:steps});}
+    var ni=s.notIncluded.split('\n').map(function(x){return x.trim();}).filter(Boolean);
+    if(ni.length){B.push({t:'h2',text:'Not included'});B.push({t:'bullets',items:ni,two:ni.length>=4});}
+    var grp=[];
+    grp.push({t:'table',titled:true,cols:[{label:'Investment',w:.7},{label:'Amount',w:.3,align:'right'}],rows:investmentRows(s,r),total:['Service total',money(r.fee)]});
+    var notes=[];
+    if(p.budget) notes.push('Your art and installation budget is estimated at '+money(p.budget)+'. It is paid at cost, in full, before anything is ordered'+(p.buying?', plus a '+fmtNum(p.pct)+'% procurement fee of '+money(p.fee)+' because Stodelle House handles the buying.':', and you buy directly from the vendors Stodelle House recommends.'));
+    if(p.travel) notes.push('Travel expenses are estimated at '+money(p.travel)+' and billed at cost, with your approval before anything is booked.');
+    if(notes.length) grp.push({t:'p',text:notes.join(' '),muted:true});
+    grp.push({t:'table',titled:true,cols:[{label:'Payment schedule',w:.54},{label:'Share',w:.16,align:'right'},{label:'Amount',w:.3,align:'right'}],
+      rows:scheduleRows(s,r.fee).map(function(x){return [x.label,fmtNum(x.pct)+'%',money(x.amount)];})});
+    B.push({t:'group',items:grp});
+  });
+
+  B.push({t:'newpage'});
+  B.push({t:'band',eyebrow:'Agreement',title:'Terms of agreement'});
+  termsList().forEach(function(tm,i){B.push({t:'clause',title:(i+1)+'. '+tm[0],text:tm[1]});});
+  B.push({t:'acceptance',text:'By signing below, both parties agree to this proposal, including its fees, payment schedules and terms.',
+    left:{org:'Stodelle House',name:'Samantha Stodelle',title:''},
+    right:{org:cover.company,name:cover.contact,title:cover.title}});
+  return {cover:cover,blocks:B,total:total};
+}
+
+/* ================= PDF (jsPDF, Helvetica) ================= */
+var PG={W:612,H:792,M:54,TOP:58,BOTTOM:734};
+var COL={carbon:[26,26,26],bronze:[156,107,50],brass:[201,169,107],muted:[110,103,95],stone:[221,215,204],plaster:[244,241,235],pink:[255,46,147],white:[255,255,255],soft:[207,200,189],soft2:[184,176,163],line:[46,42,37]};
+function pdfSafe(s){
+  return String(s==null?'':s).replace(/[‘’ʼ]/g,"'").replace(/[“”]/g,'"').replace(/[–—]/g,'-')
+    .replace(/…/g,'...').replace(/×/g,'x').replace(/ /g,' ').replace(/[^\x09\x0A\x0D\x20-\x7E\xA0-\xFF]/g,'');
+}
+function makePDF(model){
+  var J=window.jspdf.jsPDF, doc=new J({unit:'pt',format:'letter',compress:true});
+  var M=PG.M, CW=PG.W-2*M, LH=1.38, y=PG.TOP, log=[], startP=0, startY=0;
+  window.__pdfLog=log;
+  function font(style,size,col){doc.setFont('helvetica',style);doc.setFontSize(size);var c=col||COL.carbon;doc.setTextColor(c[0],c[1],c[2]);}
+  function wrap(text,style,size,width){font(style,size);return doc.splitTextToSize(pdfSafe(text),width);}
+  function newPage(){doc.addPage();y=PG.TOP;fill(COL.plaster);doc.rect(0,0,PG.W,PG.H,'F');}
+  function ensure(h){if(y+h>PG.BOTTOM&&y>PG.TOP+0.5)newPage();}
+  function fill(c){doc.setFillColor(c[0],c[1],c[2]);}
+  function draw(c){doc.setDrawColor(c[0],c[1],c[2]);}
+
+  /* measuring */
+  function pH(b){var sz=b.size||10;return wrap(b.text,'normal',sz,CW).length*sz*LH+9;}
+  function stepH(it){var tl=it.title?wrap(it.title,'bold',10,CW-30).length*10*LH:0;var bl=it.text?wrap(it.text,'normal',9.5,CW-30).length*9.5*LH:0;return Math.max(tl+bl,20)+5;}
+  function bandLines(b){return wrap(b.title.toUpperCase(),'bold',24,CW-60);}
+  function bandBottom(b){return 70+(bandLines(b).length-1)*27+26;}
+  function cardH(b){return 18+16+wrap(b.title.toUpperCase(),'bold',13,CW-40).length*15+6+wrap(b.text,'normal',10,CW-40).length*10*LH+14;}
+  function bulletH(t,w){return wrap(t,'normal',9.5,(w||CW)-16).length*9.5*LH+3;}
+  function bulletsH(b){if(!b.two)return b.items.reduce(function(t,it){return t+bulletH(it);},0)+8;var half=Math.ceil(b.items.length/2),cw=(CW-20)/2,h=0;for(var r=0;r<half;r++){h+=Math.max(bulletH(b.items[r],cw),b.items[r+half]?bulletH(b.items[r+half],cw):0);}return h+8;}
+  function colW(b){return b.cols.map(function(c){return c.w*CW;});}
+  function rowH(b,row){var w=colW(b);var n=1;row.forEach(function(cell,i){n=Math.max(n,wrap(cell,'normal',9.5,w[i]-(i?0:10)).length);});return n*9.5*LH+10;}
+  function tableH(b){var h=b.titled?30:22;b.rows.forEach(function(r){h+=rowH(b,r);});if(b.total)h+=(b.totalCard?58:28);return h+12;}
+  function h1H(b){return wrap(b.text.toUpperCase(),'bold',20,CW).length*20*1.15+18;}
+  function accH(b){return h1H({text:'Acceptance'})+pH(b)+18+4*38+18;}
+  function measure(b){
+    switch(b.t){
+      case 'eyebrow':return 16;
+      case 'h1':return h1H(b);
+      case 'h2':return 28;
+      case 'h3':return wrap(b.text,'bold',10.5,CW).length*10.5*LH+4;
+      case 'p':return pH(b);
+      case 'steps':return b.items.reduce(function(t,it){return t+stepH(it);},0)+4;
+      case 'bullets':return bulletsH(b);
+      case 'table':return tableH(b);
+      case 'acceptance':return accH(b);
+      case 'group':return b.items.reduce(function(t,x){return t+measure(x);},0);
+      case 'card':return cardH(b)+14;
+      case 'clause':return wrap(b.title,'bold',10.5,CW).length*10.5*LH+4+pH({text:b.text});
+      case 'band':return bandBottom(b)+22-PG.TOP;
+    }
+    return 0;
+  }
+  function lead(b){
+    switch(b.t){
+      case 'p':var sz=b.size||10;return Math.min(pH(b),2*sz*LH+9);
+      case 'steps':return stepH(b.items[0]);
+      case 'bullets':return b.two?bulletsH(b):b.items.slice(0,2).reduce(function(t,it){return t+bulletH(it);},0);
+      case 'table':return Math.min(tableH(b),PG.BOTTOM-PG.TOP);
+    }
+    return measure(b);
+  }
+  function isHead(b){return b&&(b.t==='eyebrow'||b.t==='h1'||b.t==='h2'||b.t==='h3');}
+
+  /* drawing */
+  function drawH1(text){
+    var ls=wrap(text.toUpperCase(),'bold',20,CW);
+    ls.forEach(function(l,i){doc.text(l,M,y+16.5+i*23);});
+    y+=ls.length*23; fill(COL.brass); doc.rect(M,y+2,36,2.5,'F'); y+=18;
+  }
+  function drawP(b){
+    var sz=b.size||10, ls=wrap(b.text,'normal',sz,CW), lh=sz*LH;
+    font('normal',sz,b.muted?COL.muted:COL.carbon);
+    ls.forEach(function(l){ if(y+lh>PG.BOTTOM){newPage();font('normal',sz,b.muted?COL.muted:COL.carbon);} doc.text(l,M,y+sz*0.82); y+=lh; });
+    y+=9;
+  }
+  function tableHeader(b,w,x){
+    var off=0;
+    if(b.titled){ if(y>PG.TOP+0.5){y+=8;} off=0; }
+    b.cols.forEach(function(c,i){
+      var t=pdfSafe(c.label.toUpperCase());
+      if(b.titled&&i===0){font('bold',8.5,COL.bronze);doc.text(t,x[i],y+9,{charSpace:1.1});return;}
+      font('bold',7.5,COL.muted);
+      if(c.align==='right') doc.text(t,x[i]+w[i],y+9,{align:'right'}); else doc.text(t,x[i],y+9);
+    });
+    draw(COL.carbon); doc.setLineWidth(2); doc.line(M,y+15,M+CW,y+15); y+=22;
+  }
+  function drawTable(b){
+    var w=colW(b), x=[], acc=M; w.forEach(function(v){x.push(acc);acc+=v;});
+    var whole=tableH(b)<=PG.BOTTOM-PG.TOP;
+    if(whole) ensure(tableH(b)); else ensure(22+rowH(b,b.rows[0]||['']));
+    startP=doc.getNumberOfPages(); startY=y;
+    tableHeader(b,w,x);
+    b.rows.forEach(function(row){
+      var rh=rowH(b,row);
+      if(!whole&&y+rh>PG.BOTTOM){newPage();tableHeader(b,w,x);}
+      row.forEach(function(cell,i){
+        var ls=wrap(cell,'normal',9.5,w[i]-(i?0:10)); font('normal',9.5);
+        ls.forEach(function(l,j){
+          if(b.cols[i].align==='right') doc.text(l,x[i]+w[i],y+11+j*9.5*LH,{align:'right'});
+          else doc.text(l,x[i],y+11+j*9.5*LH);
+        });
+      });
+      y+=rh; draw(COL.stone); doc.setLineWidth(0.5); doc.line(M,y-3,M+CW,y-3);
+    });
+    if(b.total&&b.totalCard){
+      y+=6; fill(COL.carbon); doc.rect(M,y,CW,46,'F');
+      font('bold',7.5,COL.brass); doc.text(pdfSafe(b.total[0].toUpperCase()),M+16,y+27,{charSpace:1.2});
+      font('bold',20,COL.plaster); doc.text(pdfSafe(b.total[1]),M+CW-16,y+31,{align:'right'});
+      y+=52;
+    }else if(b.total){
+      draw(COL.carbon); doc.setLineWidth(2); doc.line(M,y+2,M+CW,y+2);
+      font('bold',10.5,COL.bronze); doc.text(pdfSafe(b.total[0]),M,y+18); doc.text(pdfSafe(b.total[1]),M+CW,y+18,{align:'right'});
+      y+=28;
+    }
+    y+=12;
+  }
+  function drawSteps(b){
+    b.items.forEach(function(it,i){
+      ensure(stepH(it));
+      var top=y; font('bold',17,COL.bronze); doc.text(String(i+1),M,y+14);
+      if(it.title){var tl=wrap(it.title,'bold',10,CW-30);font('bold',10);tl.forEach(function(l){doc.text(l,M+30,y+8.5);y+=10*LH;});}
+      if(it.text){var bl=wrap(it.text,'normal',9.5,CW-30);font('normal',9.5);bl.forEach(function(l){doc.text(l,M+30,y+8);y+=9.5*LH;});}
+      y=Math.max(y,top+20)+5;
+    });
+    y+=4;
+  }
+  function drawBullets(b){
+    if(b.two){
+      ensure(bulletsH(b));
+      var half=Math.ceil(b.items.length/2), cw=(CW-20)/2;
+      for(var r=0;r<half;r++){
+        var rowTop=y, hmax=0;
+        [b.items[r],b.items[r+half]].forEach(function(t,k){
+          if(!t)return; var x=M+k*(cw+20), yy=rowTop;
+          fill(COL.brass); doc.circle(x+3,yy+4.6,1.8,'F');
+          var ls=wrap(t,'normal',9.5,cw-16); font('normal',9.5);
+          ls.forEach(function(l){doc.text(l,x+16,yy+8);yy+=9.5*LH;}); hmax=Math.max(hmax,yy-rowTop+3);
+        });
+        y=rowTop+hmax;
+      }
+      y+=8; return;
+    }
+    b.items.forEach(function(t){
+      var h=bulletH(t); ensure(h);
+      fill(COL.brass); doc.circle(M+3,y+4.6,1.8,'F');
+      var ls=wrap(t,'normal',9.5,CW-16); font('normal',9.5);
+      ls.forEach(function(l){doc.text(l,M+16,y+8);y+=9.5*LH;}); y+=3;
+    });
+    y+=8;
+  }
+  function drawBand(b){
+    if(y>PG.TOP+0.5) newPage();
+    var ls=bandLines(b), bottom=bandBottom(b);
+    fill(COL.carbon); doc.rect(0,0,PG.W,bottom,'F');
+    drawSun(PG.W-M-30,30,30,COL.brass);
+    font('bold',7.5,COL.brass); doc.text(pdfSafe(b.eyebrow.toUpperCase()),M,42,{charSpace:1.3});
+    font('bold',24,COL.plaster); ls.forEach(function(l,i){doc.text(l,M,70+i*27);});
+    fill(COL.brass); doc.rect(M,70+(ls.length-1)*27+11,36,2.5,'F');
+    y=bottom+22;
+  }
+  function drawCard(b){
+    var h=cardH(b); ensure(h+14); var top=y;
+    fill(COL.white); doc.rect(M+1.5,top+1.5,CW-3,h-3,'F');
+    draw(COL.carbon); doc.setLineWidth(3); doc.rect(M+1.5,top+1.5,CW-3,h-3,'S');
+    var yy=top+18;
+    font('bold',7.5,COL.bronze); doc.text(pdfSafe(b.kicker.toUpperCase()),M+20,yy+7,{charSpace:1.2}); yy+=16;
+    var tl=wrap(b.title.toUpperCase(),'bold',13,CW-40); font('bold',13); tl.forEach(function(l){doc.text(l,M+20,yy+11);yy+=15;}); yy+=6;
+    var ls=wrap(b.text,'normal',10,CW-40); font('normal',10); ls.forEach(function(l){doc.text(l,M+20,yy+8.2);yy+=10*LH;});
+    y=top+h+14;
+  }
+  function drawAcceptance(b){
+    ensure(accH(b));
+    startP=doc.getNumberOfPages(); startY=y;
+    font('bold',20); drawH1('Acceptance');
+    drawP({text:b.text});
+    y+=6;
+    var gap=24, cw=(CW-gap)/2, top=y;
+    [b.left,b.right].forEach(function(side,k){
+      var x=M+k*(cw+gap), yy=top;
+      font('bold',10.5); doc.text(pdfSafe(side.org||'Client'),x,yy+10); yy+=18;
+      [['Signature',''],['Name',side.name],['Title',side.title],['Date','']].forEach(function(f){
+        font('normal',10); if(f[1]) doc.text(pdfSafe(f[1]),x,yy+20);
+        draw(COL.carbon); doc.setLineWidth(0.6); doc.line(x,yy+24,x+cw,yy+24);
+        font('bold',7,COL.muted); doc.text(f[0].toUpperCase(),x,yy+33,{charSpace:0.8});
+        yy+=38;
+      });
+    });
+    y=top+18+4*38+18;
+  }
+  function drawSun(x,yy,size,c){
+    var s=size/100,cx=x+50*s,cy=yy+50*s;
+    draw(c); fill(c); doc.setLineWidth(3.4*s); doc.circle(cx,cy,47.5*s,'S'); doc.circle(cx,cy,22.8*s,'F');
+    for(var i=0;i<8;i++){
+      var a=-Math.PI/2+i*Math.PI/4, tip=(i%2===0?46.5:40.6)*s, base=27.4*s, h=14*Math.PI/180;
+      doc.triangle(cx+base*Math.cos(a-h),cy+base*Math.sin(a-h),cx+base*Math.cos(a+h),cy+base*Math.sin(a+h),cx+tip*Math.cos(a),cy+tip*Math.sin(a),'F');
+    }
+  }
+  function drawCover(cv){
+    fill(COL.carbon); doc.rect(0,0,PG.W,PG.H,'F');
+    try{doc.addImage('data:image/png;base64,'+WM_WHITE,'PNG',M,M,78,78*352/480);}catch(e){}
+    var yy=300;
+    font('bold',8,COL.brass); doc.text('PROPOSAL AND AGREEMENT',M,yy,{charSpace:1.4}); yy+=10;
+    var nl=wrap(cv.company.toUpperCase(),'bold',32,CW); font('bold',32,COL.plaster);
+    nl.forEach(function(l){doc.text(l,M,yy+29);yy+=36;});
+    fill(COL.brass); doc.rect(M,yy+8,36,2.5,'F'); yy+=20;
+    font('normal',10,COL.soft); doc.text(pdfSafe(cv.date),M,yy+12);
+    var gap=24, cw=(CW-gap)/2, top=Math.max(yy+70,520);
+    [['Prepared for',[cv.contact,cv.title,cv.company]],['Prepared by',['Samantha Stodelle','Stodelle House','San Diego, California']]].forEach(function(col,k){
+      var x=M+k*(cw+gap), y2=top;
+      font('bold',7.5,COL.brass); doc.text(col[0].toUpperCase(),x,y2,{charSpace:1.2}); y2+=14;
+      col[1].filter(Boolean).forEach(function(line,j){
+        var ls=wrap(line,j===0?'bold':'normal',10,cw); font(j===0?'bold':'normal',10,j===0?COL.plaster:COL.soft);
+        ls.forEach(function(l){doc.text(l,x,y2+2);y2+=13.5;});
+      });
+    });
+    /* the one pink gesture: the brand ticker */
+    var cx=PG.W/2, cy=702, a=0, hh=14;
+    function rot(dx,dy){return [cx+dx*Math.cos(a)+dy*Math.sin(a), cy-dx*Math.sin(a)+dy*Math.cos(a)];}
+    var p1=rot(-PG.W/2-30,-hh),p2=rot(PG.W/2+30,-hh),p3=rot(PG.W/2+30,hh),p4=rot(-PG.W/2-30,hh);
+    fill(COL.pink); doc.rect(0,cy-hh,PG.W,hh*2,'F');
+    var tp=rot(M-cx,4.5); font('bold',11.5,COL.carbon);
+    doc.text('BOYCOTT BORING WALLS  \u00B7  WHO OWNS THE LAST 10%?  \u00B7  BOYCOTT BORING WALLS',tp[0],tp[1],{charSpace:0.4});
+  }
+
+  drawCover(model.cover);
+  newPage();
+  var B=model.blocks;
+  for(var i=0;i<B.length;i++){
+    var b=B[i], y0=y, p0=doc.getNumberOfPages();
+    if(b.t==='newpage'){ if(y>PG.TOP+0.5) newPage(); continue; }
+    if(isHead(b)){
+      var need=0,j=i;
+      while(isHead(B[j])){need+=measure(B[j]);j++;}
+      if(B[j]&&B[j].t!=='newpage') need+=lead(B[j]);
+      ensure(need); p0=doc.getNumberOfPages(); y0=y;
+      if(b.t==='eyebrow'){font('bold',7.5,COL.bronze);doc.text(pdfSafe(b.text.toUpperCase()),M,y+8,{charSpace:1.2});y+=16;}
+      else if(b.t==='h1'){font('bold',20);drawH1(b.text);}
+      else if(b.t==='h2'){if(y>PG.TOP+0.5)y+=6;font('bold',8.5,COL.bronze);doc.text(pdfSafe(b.text.toUpperCase()),M,y+9,{charSpace:1.1});y+=22;}
+      else if(b.t==='h3'){var ls=wrap(b.text,'bold',10.5,CW);font('bold',10.5);ls.forEach(function(l){doc.text(l,M,y+9);y+=10.5*LH;});y+=4;}
+    }
+    else if(b.t==='p'){ensure(lead(b));p0=doc.getNumberOfPages();y0=y;drawP(b);}
+    else if(b.t==='steps'){drawSteps(b);}
+    else if(b.t==='bullets'){drawBullets(b);}
+    else if(b.t==='table'){drawTable(b);p0=startP;y0=startY;}
+    else if(b.t==='acceptance'){drawAcceptance(b);p0=startP;y0=startY;}
+    else if(b.t==='band'){drawBand(b);p0=doc.getNumberOfPages();y0=0;}
+    else if(b.t==='card'){drawCard(b);p0=doc.getNumberOfPages();y0=y;}
+    else if(b.t==='clause'){ensure(measure(b));p0=doc.getNumberOfPages();y0=y;var cl=wrap(b.title,'bold',10.5,CW);font('bold',10.5);cl.forEach(function(l){doc.text(l,M,y+9);y+=10.5*LH;});y+=4;drawP({text:b.text});}
+    else if(b.t==='group'){var gh=measure(b);if(gh<=PG.BOTTOM-PG.TOP)ensure(gh);p0=doc.getNumberOfPages();y0=y;b.items.forEach(function(x){if(x.t==='table')drawTable(x);else{ensure(lead(x));drawP(x);}});}
+    log.push({t:b.t,text:String(b.text||'').slice(0,48),page:p0,y0:y0,page1:doc.getNumberOfPages(),y1:y});
+  }
+  var n=doc.getNumberOfPages(), who=pdfSafe(model.cover.company);
+  for(var pg=2;pg<=n;pg++){
+    doc.setPage(pg);
+    draw(COL.stone); doc.setLineWidth(0.5); doc.line(M,PG.H-46,M+CW,PG.H-46);
+    font('normal',7.5,COL.muted);
+    doc.text('Stodelle House  |  Proposal for '+who,M,PG.H-32);
+    doc.text('Page '+pg+' of '+n,M+CW,PG.H-32,{align:'right'});
+  }
+  return doc;
+}
+
+/* ================= Word (.docx built in the page) ================= */
+function xe(s){return String(s==null?'':s).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function wR(text,o){
+  o=o||{}; var pr='';
+  if(o.b)pr+='<w:b/><w:bCs/>'; if(o.caps)pr+='<w:caps/>'; if(o.color)pr+='<w:color w:val="'+o.color+'"/>';
+  if(o.sp)pr+='<w:spacing w:val="'+o.sp+'"/>'; if(o.sz)pr+='<w:sz w:val="'+Math.round(o.sz*2)+'"/><w:szCs w:val="'+Math.round(o.sz*2)+'"/>';
+  return '<w:r>'+(pr?'<w:rPr>'+pr+'</w:rPr>':'')+'<w:t xml:space="preserve">'+xe(text)+'</w:t></w:r>';
+}
+var wTab='<w:r><w:tab/></w:r>';
+function wP(runs,o){
+  o=o||{}; var pr='';
+  if(o.keepNext)pr+='<w:keepNext/>'; if(o.keepLines)pr+='<w:keepLines/>'; if(o.pageBreak)pr+='<w:pageBreakBefore/>';
+  if(o.border)pr+='<w:pBdr><w:bottom w:val="single" w:sz="6" w:space="1" w:color="1A1A1A"/></w:pBdr>';
+  if(o.shd)pr+='<w:shd w:val="clear" w:color="auto" w:fill="'+o.shd+'"/>';
+  if(o.tabs)pr+='<w:tabs>'+o.tabs+'</w:tabs>';
+  pr+='<w:spacing w:before="'+(o.before||0)+'" w:after="'+(o.after==null?120:o.after)+'"/>';
+  if(o.ind)pr+='<w:ind w:left="'+o.ind[0]+'" w:hanging="'+(o.ind[1]||0)+'"/>';
+  if(o.jc)pr+='<w:jc w:val="'+o.jc+'"/>';
+  return '<w:p><w:pPr>'+pr+'</w:pPr>'+runs+'</w:p>';
+}
+var TW=10080;
+function wImg(rid,cx,cy,id,name){
+  return '<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="'+cx+'" cy="'+cy+'"/><wp:docPr id="'+id+'" name="'+name+'"/>'+
+    '<a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="0" name="'+name+'"/><pic:cNvPicPr/></pic:nvPicPr>'+
+    '<pic:blipFill><a:blip r:embed="'+rid+'"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="'+cx+'" cy="'+cy+'"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>';
+}
+function wTable(b,keep,keepAfter){
+  var widths=b.cols.map(function(c){return Math.round(c.w*TW);});
+  var grid='<w:tblGrid>'+widths.map(function(w){return '<w:gridCol w:w="'+w+'"/>';}).join('')+'</w:tblGrid>';
+  var pr='<w:tblPr><w:tblW w:w="'+TW+'" w:type="dxa"/><w:tblLayout w:type="fixed"/>'+
+    '<w:tblCellMar><w:top w:w="60" w:type="dxa"/><w:left w:w="0" w:type="dxa"/><w:bottom w:w="60" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr>';
+  var all=b.rows.length+1+(b.total?1:0), idx=0;
+  function cell(text,w,o,border){
+    var bd=border?'<w:tcBorders><w:'+border[0]+' w:val="single" w:sz="'+border[1]+'" w:space="0" w:color="'+border[2]+'"/></w:tcBorders>':'';
+    return '<w:tc><w:tcPr><w:tcW w:w="'+w+'" w:type="dxa"/>'+bd+'</w:tcPr>'+
+      wP(wR(text,o.run),{keepNext:o.keepNext,after:0,jc:o.jc})+'</w:tc>';
+  }
+  function row(cells,o,header){
+    idx++; var kn=keep&&(idx<all||!!keepAfter);
+    return '<w:tr><w:trPr><w:cantSplit/>'+(header?'<w:tblHeader/>':'')+'</w:trPr>'+cells.map(function(t,i){
+      return cell(t,widths[i],{run:o.run,keepNext:kn,jc:b.cols[i].align==='right'?'right':null},o.border);
+    }).join('')+'</w:tr>';
+  }
+  var x;
+  if(b.titled){
+    idx++;
+    x='<w:tr><w:trPr><w:cantSplit/><w:tblHeader/></w:trPr>'+b.cols.map(function(c,i){
+      var o=i===0?{b:true,caps:true,sz:8.5,color:'9C6B32',sp:22}:{b:true,caps:true,sz:7.5,color:'6E675F',sp:16};
+      return '<w:tc><w:tcPr><w:tcW w:w="'+widths[i]+'" w:type="dxa"/><w:tcBorders><w:bottom w:val="single" w:sz="16" w:space="0" w:color="1A1A1A"/></w:tcBorders></w:tcPr>'+
+        wP(wR(c.label,o),{keepNext:keep,before:i===0?200:200,after:0,jc:c.align==='right'?'right':null})+'</w:tc>';
+    }).join('')+'</w:tr>';
+  }else x=row(b.cols.map(function(c){return c.label;}),{run:{b:true,caps:true,sz:7.5,color:'6E675F',sp:16},border:['bottom',16,'1A1A1A']},true);
+  b.rows.forEach(function(r){x+=row(r,{run:{sz:9.5},border:['bottom',4,'DDD7CC']});});
+  if(b.total){
+    var cells=[b.total[0]];for(var i=1;i<b.cols.length-1;i++)cells.push('');cells.push(b.total[1]);
+    idx++; var knT=keep&&(idx<all||!!keepAfter);
+    x+='<w:tr><w:trPr><w:cantSplit/></w:trPr>'+cells.map(function(t,i){
+      var card=!!b.totalCard;
+      var bd=card?'':'<w:tcBorders><w:top w:val="single" w:sz="16" w:space="0" w:color="1A1A1A"/></w:tcBorders>';
+      var shd=card?'<w:shd w:val="clear" w:color="auto" w:fill="1A1A1A"/>':'';
+      var mar=card?'<w:tcMar><w:top w:w="200" w:type="dxa"/><w:left w:w="240" w:type="dxa"/><w:bottom w:w="200" w:type="dxa"/><w:right w:w="240" w:type="dxa"/></w:tcMar>':'';
+      var run=card?(i===0?{b:true,caps:true,sz:8,color:'C9A96B',sp:24}:{b:true,sz:18,color:'F4F1EB'}):{b:true,sz:10.5,color:'9C6B32'};
+      return '<w:tc><w:tcPr><w:tcW w:w="'+widths[i]+'" w:type="dxa"/>'+bd+shd+mar+'<w:vAlign w:val="center"/></w:tcPr>'+
+        wP(wR(t,run),{keepNext:knT,after:0,jc:b.cols[i].align==='right'?'right':null})+'</w:tc>';
+    }).join('')+'</w:tr>';
+  }
+  return '<w:tbl>'+pr+grid+x+'</w:tbl>'+wP('',{after:120,keepNext:!!keepAfter});
+}
+function docxXML(model){
+  var cv=model.cover, out='', brk=false;
+  var P='F4F1EB',BR='C9A96B',SOFT='CFC8BD';
+  var cov='';
+  cov+=wP(wImg('rIdLogo',990600,Math.round(990600*352/480),3,'logo.png'),{after:3000});
+  cov+=wP(wR('Proposal and agreement',{b:true,caps:true,sz:8,color:BR,sp:28}),{after:80});
+  cov+=wP(wR(cv.company,{b:true,caps:true,sz:30,color:P}),{after:120});
+  cov+=wP(wR(cv.date,{sz:10,color:SOFT}),{after:1600});
+  cov+=wP(wR('Prepared for',{b:true,caps:true,sz:7.5,color:BR,sp:24}),{after:60});
+  [cv.contact,cv.title,cv.company].filter(Boolean).forEach(function(l,i){cov+=wP(wR(l,{b:i===0,sz:10,color:i===0?P:SOFT}),{after:0});});
+  cov+=wP(wR('Prepared by',{b:true,caps:true,sz:7.5,color:BR,sp:24}),{before:260,after:60});
+  ['Samantha Stodelle','Stodelle House','San Diego, California'].forEach(function(l,i){cov+=wP(wR(l,{b:i===0,sz:10,color:i===0?P:SOFT}),{after:0});});
+  cov+=wP(wR('Boycott boring walls  \u00B7  Who owns the last 10%?',{b:true,caps:true,sz:11,color:'1A1A1A',sp:10}),{shd:'FF2E93',before:900,after:0});
+  out+='<w:tbl><w:tblPr><w:tblW w:w="'+TW+'" w:type="dxa"/><w:tblLayout w:type="fixed"/><w:tblCellMar><w:top w:w="480" w:type="dxa"/><w:left w:w="520" w:type="dxa"/><w:bottom w:w="480" w:type="dxa"/><w:right w:w="520" w:type="dxa"/></w:tblCellMar></w:tblPr>'+
+    '<w:tblGrid><w:gridCol w:w="'+TW+'"/></w:tblGrid><w:tr><w:trPr><w:cantSplit/><w:trHeight w:val="13000" w:hRule="atLeast"/></w:trPr>'+
+    '<w:tc><w:tcPr><w:tcW w:w="'+TW+'" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="1A1A1A"/></w:tcPr>'+cov+'</w:tc></w:tr></w:tbl>';
+  brk=true;
+  model.blocks.forEach(function(b){
+    if(b.t==='newpage'){brk=true;return;}
+    var pb=brk; brk=false;
+    switch(b.t){
+      case 'band':
+        out+='<w:p><w:pPr><w:pageBreakBefore/><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/><w:rPr><w:sz w:val="2"/></w:rPr></w:pPr></w:p>';
+        out+='<w:tbl><w:tblPr><w:tblW w:w="'+TW+'" w:type="dxa"/><w:tblLayout w:type="fixed"/><w:tblCellMar><w:top w:w="320" w:type="dxa"/><w:left w:w="320" w:type="dxa"/><w:bottom w:w="320" w:type="dxa"/><w:right w:w="320" w:type="dxa"/></w:tblCellMar></w:tblPr>'+
+          '<w:tblGrid><w:gridCol w:w="'+TW+'"/></w:tblGrid><w:tr><w:trPr><w:cantSplit/></w:trPr><w:tc><w:tcPr><w:tcW w:w="'+TW+'" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="1A1A1A"/></w:tcPr>'+
+          wP(wR(b.eyebrow,{b:true,caps:true,sz:7.5,color:'C9A96B',sp:26}),{keepNext:true,after:80})+
+          wP(wR(b.title,{b:true,caps:true,sz:22,color:'F4F1EB'}),{keepNext:true,after:0})+
+          '</w:tc></w:tr></w:tbl>'+wP('',{after:200,keepNext:true});
+        break;
+      case 'card':
+        out+='<w:tbl><w:tblPr><w:tblW w:w="'+TW+'" w:type="dxa"/><w:tblLayout w:type="fixed"/>'+
+          '<w:tblBorders><w:top w:val="single" w:sz="24" w:space="0" w:color="1A1A1A"/><w:left w:val="single" w:sz="24" w:space="0" w:color="1A1A1A"/><w:bottom w:val="single" w:sz="24" w:space="0" w:color="1A1A1A"/><w:right w:val="single" w:sz="24" w:space="0" w:color="1A1A1A"/></w:tblBorders>'+
+          '<w:tblCellMar><w:top w:w="300" w:type="dxa"/><w:left w:w="320" w:type="dxa"/><w:bottom w:w="300" w:type="dxa"/><w:right w:w="320" w:type="dxa"/></w:tblCellMar></w:tblPr>'+
+          '<w:tblGrid><w:gridCol w:w="'+TW+'"/></w:tblGrid><w:tr><w:trPr><w:cantSplit/></w:trPr><w:tc><w:tcPr><w:tcW w:w="'+TW+'" w:type="dxa"/><w:shd w:val="clear" w:color="auto" w:fill="F4F1EB"/></w:tcPr>'+
+          wP(wR(b.kicker,{b:true,caps:true,sz:7.5,color:'9C6B32',sp:24}),{keepNext:true,after:60})+
+          wP(wR(b.title,{b:true,caps:true,sz:13}),{keepNext:true,after:100})+
+          wP(wR(b.text,{sz:10}),{after:0})+
+          '</w:tc></w:tr></w:tbl>'+wP('',{after:120});
+        break;
+      case 'clause': out+=wP(wR(b.title,{b:true,sz:10.5}),{keepNext:true,before:160,after:40})+wP(wR(b.text,{sz:10}),{keepLines:true,after:120});break;
+      case 'eyebrow': out+=wP(wR(b.text,{b:true,caps:true,sz:7.5,color:'9C6B32',sp:24}),{keepNext:true,pageBreak:pb,after:60});break;
+      case 'h1': out+=wP(wR(b.text,{b:true,caps:true,sz:20}),{keepNext:true,pageBreak:pb,after:200});break;
+      case 'h2': out+=wP(wR(b.text,{b:true,caps:true,sz:8.5,color:'9C6B32',sp:22}),{keepNext:true,before:160,after:80});break;
+      case 'h3': out+=wP(wR(b.text,{b:true,sz:10.5}),{keepNext:true,before:160,after:40});break;
+      case 'p': out+=wP(wR(b.text,{sz:10,color:b.muted?'6E675F':null}),{after:180});break;
+      case 'steps': b.items.forEach(function(it,i){
+          out+=wP(wR(String(i+1),{b:true,color:'9C6B32',sz:12.5})+wTab+wR(it.title,{b:true,sz:10}),{keepNext:true,keepLines:true,after:0,ind:[520,520],tabs:'<w:tab w:val="left" w:pos="520"/>'});
+          if(it.text) out+=wP(wR(it.text,{sz:9.5}),{keepLines:true,after:80,ind:[520,0]});
+        });break;
+      case 'bullets':
+        if(b.two){
+          var half=Math.ceil(b.items.length/2), cw=Math.round(TW/2);
+          var colB=function(items){return items.map(function(t){return wP(wR('\u2022',{color:'C9A96B'})+wTab+wR(t,{sz:9.5}),{keepLines:true,keepNext:true,after:20,ind:[320,320],tabs:'<w:tab w:val="left" w:pos="320"/>'});}).join('')||wP('',{after:0});};
+          out+='<w:tbl><w:tblPr><w:tblW w:w="'+TW+'" w:type="dxa"/><w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="200" w:type="dxa"/></w:tblCellMar></w:tblPr>'+
+            '<w:tblGrid><w:gridCol w:w="'+cw+'"/><w:gridCol w:w="'+(TW-cw)+'"/></w:tblGrid><w:tr><w:trPr><w:cantSplit/></w:trPr>'+
+            '<w:tc><w:tcPr><w:tcW w:w="'+cw+'" w:type="dxa"/></w:tcPr>'+colB(b.items.slice(0,half))+'</w:tc>'+
+            '<w:tc><w:tcPr><w:tcW w:w="'+(TW-cw)+'" w:type="dxa"/></w:tcPr>'+colB(b.items.slice(half))+'</w:tc></w:tr></w:tbl>'+wP('',{after:40});
+          break;
+        }
+        b.items.forEach(function(t,i){
+          out+=wP(wR('•',{color:'C9A96B'})+wTab+wR(t,{sz:9.5}),{keepLines:true,keepNext:i<b.items.length-1&&b.items.length<=6,after:20,ind:[320,320],tabs:'<w:tab w:val="left" w:pos="320"/>'});
+        });out+=wP('',{after:60});break;
+      case 'table': out+=wTable(b,b.rows.length<=12);break;
+      case 'group': b.items.forEach(function(x,k){var more=k<b.items.length-1;if(x.t==='table')out+=wTable(x,true,more);else out+=wP(wR(x.text,{sz:10,color:x.muted?'6E675F':null}),{keepNext:more,keepLines:true,after:180});});break;
+      case 'acceptance':
+        out+=wP(wR('Acceptance',{b:true,caps:true,sz:20}),{keepNext:true,pageBreak:pb,before:240,after:200});
+        out+=wP(wR(b.text,{sz:10}),{keepNext:true,after:240});
+        var col=function(side){
+          var c=wP(wR(side.org||'Client',{b:true,sz:10.5}),{keepNext:true,after:60});
+          [['Signature',''],['Name',side.name],['Title',side.title],['Date','']].forEach(function(f){
+            c+=wP(wR(f[1]||' ',{sz:10}),{keepNext:true,border:true,before:300,after:20});
+            c+=wP(wR(f[0],{b:true,caps:true,sz:7,color:'6E675F',sp:16}),{keepNext:true,after:0});
+          });
+          return c;
+        };
+        var half=Math.round(TW/2);
+        out+='<w:tbl><w:tblPr><w:tblW w:w="'+TW+'" w:type="dxa"/><w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="360" w:type="dxa"/></w:tblCellMar></w:tblPr>'+
+          '<w:tblGrid><w:gridCol w:w="'+half+'"/><w:gridCol w:w="'+(TW-half)+'"/></w:tblGrid>'+
+          '<w:tr><w:trPr><w:cantSplit/></w:trPr><w:tc><w:tcPr><w:tcW w:w="'+half+'" w:type="dxa"/></w:tcPr>'+col(b.left)+'</w:tc>'+
+          '<w:tc><w:tcPr><w:tcW w:w="'+(TW-half)+'" w:type="dxa"/></w:tcPr>'+col(b.right)+'</w:tc></w:tr></w:tbl>'+wP('',{after:0});
+        break;
+    }
+  });
+  return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+    '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" '+
+    'xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" '+
+    'xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><w:body>'+out+
+    '<w:sectPr><w:footerReference w:type="default" r:id="rIdFtr"/><w:pgSz w:w="12240" w:h="15840"/>'+
+    '<w:pgMar w:top="1080" w:right="1080" w:bottom="1080" w:left="1080" w:header="720" w:footer="540" w:gutter="0"/><w:titlePg/></w:sectPr>'+
+    '</w:body></w:document>';
+}
+function docxFooter(company){
+  var run=function(t){return wR(t,{sz:7.5,color:'6E675F'});};
+  var fld=function(f){return '<w:fldSimple w:instr=" '+f+' "><w:r><w:rPr><w:color w:val="6E675F"/><w:sz w:val="15"/></w:rPr><w:t>1</w:t></w:r></w:fldSimple>';};
+  return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'+
+    '<w:p><w:pPr><w:pBdr><w:top w:val="single" w:sz="4" w:space="4" w:color="DDD7CC"/></w:pBdr><w:tabs><w:tab w:val="right" w:pos="'+TW+'"/></w:tabs><w:spacing w:before="0" w:after="0"/></w:pPr>'+
+    run('Stodelle House  |  Proposal for '+company)+wTab+run('Page ')+fld('PAGE')+run(' of ')+fld('NUMPAGES')+'</w:p></w:ftr>';
+}
+var DOCX_STYLES='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'+
+  '<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:eastAsia="Arial" w:cs="Arial"/><w:color w:val="1A1A1A"/><w:sz w:val="20"/><w:szCs w:val="20"/><w:lang w:val="en-US"/></w:rPr></w:rPrDefault>'+
+  '<w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>'+
+  '<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>'+
+  '<w:style w:type="table" w:default="1" w:styleId="TableNormal"><w:name w:val="Normal Table"/><w:tblPr><w:tblInd w:w="0" w:type="dxa"/><w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr></w:style>'+
+  '</w:styles>';
+
+/* Minimal ZIP writer (stored, no compression) */
+var CRC_T=(function(){var t=new Uint32Array(256);for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(u){var c=0xFFFFFFFF;for(var i=0;i<u.length;i++)c=CRC_T[(c^u[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function b64bytes(b64){var bin=atob(b64),u=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u;}
+function zip(files){
+  var enc=new TextEncoder(), parts=[], central=[], offset=0, d=new Date();
+  var time=(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1), date=((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate();
+  files.forEach(function(f){
+    var name=enc.encode(f.name), data=typeof f.data==='string'?enc.encode(f.data):f.data, crc=crc32(data);
+    var h=new DataView(new ArrayBuffer(30));
+    h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);
+    h.setUint16(10,time,true);h.setUint16(12,date,true);h.setUint32(14,crc,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);
+    h.setUint16(26,name.length,true);h.setUint16(28,0,true);
+    parts.push(new Uint8Array(h.buffer),name,data);
+    var c=new DataView(new ArrayBuffer(46));
+    c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);
+    c.setUint16(12,time,true);c.setUint16(14,date,true);c.setUint32(16,crc,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);
+    c.setUint16(28,name.length,true);c.setUint16(30,0,true);c.setUint16(32,0,true);c.setUint16(34,0,true);c.setUint16(36,0,true);c.setUint32(38,0,true);c.setUint32(42,offset,true);
+    central.push(new Uint8Array(c.buffer),name);
+    offset+=30+name.length+data.length;
+  });
+  var cdSize=central.reduce(function(t,p){return t+p.length;},0);
+  var e=new DataView(new ArrayBuffer(22));
+  e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cdSize,true);e.setUint32(16,offset,true);
+  return new Blob(parts.concat(central,[new Uint8Array(e.buffer)]),{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+function makeDocx(model){
+  var R='http://schemas.openxmlformats.org/officeDocument/2006/relationships';
+  return zip([
+    {name:'[Content_Types].xml',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'+
+      '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/>'+
+      '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>'+
+      '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>'+
+      '<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/></Types>'},
+    {name:'_rels/.rels',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="'+R+'/officeDocument" Target="word/document.xml"/></Relationships>'},
+    {name:'word/_rels/document.xml.rels',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
+      '<Relationship Id="rIdStyles" Type="'+R+'/styles" Target="styles.xml"/><Relationship Id="rIdFtr" Type="'+R+'/footer" Target="footer1.xml"/><Relationship Id="rIdLogo" Type="'+R+'/image" Target="media/logo.png"/></Relationships>'},
+    {name:'word/document.xml',data:docxXML(model)},
+    {name:'word/styles.xml',data:DOCX_STYLES},
+    {name:'word/footer1.xml',data:docxFooter(model.cover.company)},
+    {name:'word/media/logo.png',data:b64bytes(WM_WHITE)}
+  ]);
+}
+
+/* ---------- Render ---------- */
+function renderAll(){renderPicker();renderTabs();renderPanel();renderTotals();updateProposalHints();clearMsgIfValid();}
+fillForms();
+renderAll();
+
+/* Exposed for testing only */
+window.__sh={state:function(){return state;},calc:serviceCalc,computeTotals:computeTotals,buildModel:buildModel,makePDF:makePDF,makeDocx:makeDocx,validate:validate};
+})();
+</script>
+</body>
+</html>
